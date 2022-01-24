@@ -6,7 +6,9 @@ const style = StyleSheet.create({
         fontSize:25,
         fontWeight:'700',
         textAlign:'center',
-        color:'black'
+        color:'black',
+        marginBottom:35,
+        marginTop:30
     },
     text:{
         fontSize:16,
@@ -21,6 +23,7 @@ const style = StyleSheet.create({
         justifyContent:'center',
         alignItems: 'center',
     },
+
     viwe:{
         height:window.height,
         width:window.width,
@@ -60,7 +63,33 @@ const style = StyleSheet.create({
         fontSize:30,
         color:'black',
         marginLeft:90,
-    }
+    },
+
+    viewsignup:{
+        
+        borderRadius: 40,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    signUpButton:{
+        height: 40,
+        width:300,
+        
+        borderWidth: 0.5,
+        padding: 10,
+        borderRadius:20,
+        backgroundColor:'#dda0dd'
+    },
+    input: {
+        height: 40,
+        width:300,
+        marginTop:30,
+        borderWidth: 0.5,
+        padding: 10,
+        borderRadius:20,
+        backgroundColor:'#ffe4e1'
+      },
+
 })
 
 export default style
