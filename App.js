@@ -22,6 +22,7 @@ const App = () => {
         <Stack.Screen name="Forget" component={Forget} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
