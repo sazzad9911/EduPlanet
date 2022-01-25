@@ -16,9 +16,10 @@ const Button = (props) => {
                     props.text ? props.text : '.'
                 }
             </Text>
+            
 
         </TouchableOpacity>
     );
 };
 
-
+export default Button

@@ -56,12 +56,12 @@ const SignUp = (props) => {
                 />
 
                 <View style={{
-                    marginTop:200
+                    marginTop: 200
                 }}>
-                    <Button text='Sign Up'/>
+                    <Button text='Sign Up' />
                 </View>
             </View>
-
+            <Text style={style.text}>Already Have an Account?</Text>
         </ScrollView>
     );
 };
