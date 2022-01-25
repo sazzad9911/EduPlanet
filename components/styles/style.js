@@ -52,12 +52,14 @@ const style = StyleSheet.create({
         //alignContent:'center',
     },
     cartButton:{
-        height:100,
-        width:100,
+        height:112,
+        width:112,
         marginTop:10,
         marginLeft:20,
         borderRadius:10,
         backgroundColor:'#FCF3DF',
+        alignItems:'center',
+        justifyContent:'center',
     },
     categoriesText:{
         fontSize:30,
@@ -88,7 +90,13 @@ const style = StyleSheet.create({
         padding: 10,
         borderRadius:20,
         backgroundColor:'#ffe4e1'
-      },
+    },
+    categoriesText1:{
+        fontSize:19,
+        color:'black',
+        alignItems:'center',
+    },
+    
 
 })
 
