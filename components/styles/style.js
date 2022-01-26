@@ -7,6 +7,14 @@ const style = StyleSheet.create({
         fontWeight: '800',
         color: 'black'
     },
+
+    headLine1: {
+        fontSize: 30,
+        fontWeight: '800',
+        color: 'black',
+        marginLeft: 0
+    },
+
     text: {
         fontSize: 16,
         fontWeight: '200',
@@ -25,12 +33,12 @@ const style = StyleSheet.create({
         height: 792,
         width: 432,
         backgroundColor: 'white',
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.8,
-        shadowRadius: 1,
+        borderRadius: 40,
+        shadowColor: "#000",
+        shadowOffset: { width: 3, height: 3 },
+        shadowOpacity: 0.5,
+        shadowRadius: 3.84,
+        elevation: 5
     },
 
     textView: {
@@ -49,26 +57,122 @@ const style = StyleSheet.create({
     },
 
     image: {
-        height: 200,
+        height: 180,
         width: 350,
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         marginTop: 50,
         borderRadius: 12
     },
 
-    bottomView: {
-        height: 10,
-        width: 10,
-        borderRadius: 100,
-        backgroundColor: 'black'
+    dotView: {
+        height: 17,
+        width: 17,
+        borderRadius: 80,
+        backgroundColor: 'black',
+        marginLeft: 12,
+        marginTop: 28
     },
 
-    dotView: {
+    dotView1: {
+        height: 13,
+        width: 13,
+        borderRadius: 80,
+        backgroundColor: 'white',
+        marginLeft: 2,
+        marginTop: 2
+    },
+
+    bottom: {
+        height: 150,
+        width: 400,
+        backgroundColor: 'white',
+        marginTop: 70,
+        flexDirection: 'row'
+    },
+
+    bottomButton: {
+        height: 55,
+        width: 140,
+        backgroundColor: '#dda0dd',
+        borderTopLeftRadius: 50,
+        borderBottomLeftRadius: 50,
+        marginLeft: 81,
+        marginTop: 48
+    },
+
+    bottomButtonText: {
+        fontSize: 28,
+        color: 'black',
+        justifyContent: 'center',
+        marginLeft: 48,
+        marginTop: 6,
+        fontWeight: '400'
+    },
+
+    bottomView: {
+        height: 70,
+        width: 150,
+        backgroundColor: 'white',
+        marginTop: 40,
+        marginLeft: 15,
+        flexDirection: 'row'
+    },
+
+    bottomView1: {
         height: 70,
         width: 150,
         backgroundColor: 'red',
-        marginTop: 100
+        marginTop: 100,
+        marginLeft: 15,
+        flexDirection: 'row'
     },
+
+    headLine: {
+        fontSize: 25,
+        fontWeight: '700',
+        textAlign: 'center',
+        color: 'black',
+        marginBottom: 35,
+        marginTop: 30
+    },
+
+    text: {
+        fontSize: 16,
+        fontWeight: '200',
+        color: 'green',
+    },
+
+    tabButton: {
+        width: 100,
+        height: 40,
+        backgroundColor: 'white',
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    viewsignup: {
+        borderRadius: 40,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    signUpButton: {
+        height: 40,
+        width: 300,
+        borderWidth: 0.5,
+        padding: 10,
+        borderRadius: 20,
+        backgroundColor: '#dda0dd'
+    },
+    input: {
+        height: 40,
+        width: 300,
+        marginTop: 30,
+        borderWidth: 0.5,
+        padding: 10,
+        borderRadius: 20,
+        backgroundColor: '#ffe4e1'
+    },
+
 })
 
 export default style
