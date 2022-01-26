@@ -150,6 +150,50 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+
+    viwe: {
+        height: window.height,
+        width: window.width,
+        backgroundColor: 'white',
+    },
+    viwe1: {
+        height: 130,
+        width: window.width,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+    },
+    viwe2: {
+        height: 100,
+        width: 100,
+        backgroundColor: 'red',
+        flexDirection: 'column',
+    },
+    viwe3: {
+        height: 40,
+        width: 300,
+        marginTop: 70,
+        marginLeft: 45,
+        borderRadius: 20,
+        backgroundColor: '#F0C2BF',
+        //justifyContent:'center',
+        //alignContent:'center',
+    },
+    cartButton: {
+        height: 112,
+        width: 112,
+        marginTop: 10,
+        marginLeft: 20,
+        borderRadius: 10,
+        backgroundColor: '#FCF3DF',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    categoriesText: {
+        fontSize: 30,
+        color: 'black',
+        marginLeft: 90,
+    },
+
     viewsignup: {
         borderRadius: 40,
         justifyContent: 'center',
@@ -171,6 +215,11 @@ const style = StyleSheet.create({
         padding: 10,
         borderRadius: 20,
         backgroundColor: '#ffe4e1'
+    },
+    categoriesText1: {
+        fontSize: 19,
+        color: 'black',
+        alignItems: 'center',
     },
 
 })

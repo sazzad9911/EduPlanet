@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native'
 import style from '../styles/style';
@@ -15,9 +16,10 @@ const Button = (props) => {
                     props.text ? props.text : '.'
                 }
             </Text>
+            
 
         </TouchableOpacity>
     );
 };
 
-export default Button;
+export default Button

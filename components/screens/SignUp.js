@@ -2,7 +2,11 @@ import React from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native'
 import style from '../styles/style';
 import Button from '../contents/Button';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
+const Stack = createNativeStackNavigator();
 
 const SignUp = (props) => {
 
@@ -56,9 +60,18 @@ const SignUp = (props) => {
                 />
 
                 <View style={{
-                    marginTop:200
+                    marginTop: 200
                 }}>
-                    <Button text='Sign Up'/>
+                    <Button text='Sign Up' />
+                </View>
+                <View style={{ flexDirection: 'row',marginTop: 30 }}>
+                    <Text style={[style.text, {
+                       marginRight:5 
+                    }]}>Already Have an Account?
+                    </Text>
+                    <Text style={{ color: 'blue' }} onPress={()=>props.navigation.navigate('SignIn')}>
+                        Sign In
+                    </Text>
                 </View>
             </View>
 
