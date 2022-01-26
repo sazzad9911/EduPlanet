@@ -96,7 +96,103 @@ const style = StyleSheet.create({
         color:'black',
         alignItems:'center',
     },
-    
+    profileviwe:{
+        height:window.height,
+        width:window.width,
+        backgroundColor: 'white',
+        alignItems:'center',
+        //justifyContent:'center',
+    },
+    profileviwea:{
+        height:220,
+        width:380,
+        marginTop:15,
+        backgroundColor: '#FEE0DE',
+        borderRadius:15,
+    },
+    profileviweC:{
+        height:170,
+        width:380,
+        borderRadius:15,
+        backgroundColor:'#FEE0DE',
+        flexDirection: 'row',
+    },
+    profiletext:{
+        fontSize:26,
+        color:'black',
+    },
+    profiletextA:{
+        fontSize:18,
+        color:'black',
+    },
+    profiletextC:{
+        fontSize:20,
+        color:'black',
+    },
+    profiletextD:{
+        fontSize:20,
+        color:'black',
+        marginLeft:100,
+    },
+    profiletextE:{
+        fontSize:25,
+        color:'blue',
+        marginLeft:15,
+    },
+    profileviweB:{
+        height:75,
+        width:75,
+    },
+    profileviweD:{
+        height:170,
+        width:80,
+        borderRadius:25,
+        //marginLeft:10,
+        marginTop:5,
+        backgroundColor:'#FEE0DE'
+    },
+    profileviweE:{
+        height:170,
+        width:295,
+        borderRadius:15,
+        marginLeft:5,
+        backgroundColor:'#FEE0DE'
+    },
+    profileviweF:{
+        height:15,
+        width:290,
+        marginTop:10,
+        borderRadius:15,
+        borderColor:'black',
+        backgroundColor:'white'
+    },
+    profileviweG:{
+        height:15,
+        width:200,
+        borderRadius:15,
+        backgroundColor:'blue'
+    },
+    profileviweH:{
+        height:40,
+        width:250,
+        marginLeft:60,
+        borderRadius:23,
+        backgroundColor:'white'
+    },
+    profileviweI:{
+        height:330,
+        width:380,
+        marginTop:15,
+        backgroundColor: '#FEE0DE',
+        borderRadius:15,
+    },
+    profileCart:{
+        height:90,
+        width:380,
+        backgroundColor: '#FEE0DE',
+        borderRadius:15,
+    },
+
 
 })
 
