@@ -3,6 +3,8 @@ import { StyleSheet, Dimensions, View, Text, Image, TouchableOpacity } from "rea
 import Icon from 'react-native-vector-icons/Entypo';
 import style from "../styles/style";
 import DropShadow from "react-native-drop-shadow";
+
+
 const window = Dimensions.get('window')
 
 const Cart1 = (props) => {
@@ -14,17 +16,20 @@ const Cart1 = (props) => {
                     width: 0,
                     height: 0,
                 },
-                shadowOpacity: 1,
+                shadowOpacity: 0.3,
                 shadowRadius: 5,
             }}>
-            <TouchableOpacity style={style.cartButton} onPress={() => props.onPress()}>
+            <TouchableOpacity style={[style.cartButton,props.style]} onPress={() =>{
+                if(props.onPress){
+                    props.onPress()
+                }
+            }}>
 
                 <Image
-                    style={{ height: 40, width: 40 }}
-                    source={{
-                        uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
-                    }}
+                    style={{ height: 45, width: 45, marginTop:5}}
+                    source={props.image}
                 />
+                <Text style={style.categoriesText1}>{props.data}</Text>
             </TouchableOpacity>
 
         </DropShadow>
