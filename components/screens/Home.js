@@ -29,6 +29,8 @@ const TabBar = (props) => {
             justifyContent: 'center',
             alignItems: 'center'
         }}>
+
+
             <View style={{
                 backgroundColor:'#F49A14',
                 flexDirection:'row',

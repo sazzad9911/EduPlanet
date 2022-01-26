@@ -318,6 +318,12 @@ const style = StyleSheet.create({
         backgroundColor: '#FEE0DE',
         borderRadius:15,
     },
+    dashbord:{
+        height:50,
+        width:50,
+        backgroundColor:'red',
+        margin:30,
+    },
 
 
 })
