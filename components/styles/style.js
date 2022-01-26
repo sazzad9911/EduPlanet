@@ -27,9 +27,8 @@ const style = StyleSheet.create({
         marginRight: 10,
         borderRadius: 10,
         justifyContent: 'center',
-
-
-        text: {
+    },
+    text: {
             fontSize: 16,
             fontWeight: '200',
             color: 'green',
@@ -371,11 +370,11 @@ const style = StyleSheet.create({
         backgroundColor: '#FEE0DE',
         borderRadius: 15,
     },
-    dashbord:{
-        height:50,
-        width:50,
-        backgroundColor:'red',
-        margin:30,
+    dashbord: {
+        height: 50,
+        width: 50,
+        backgroundColor: 'red',
+        margin: 30,
     },
 
 
