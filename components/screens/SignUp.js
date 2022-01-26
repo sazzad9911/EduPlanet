@@ -69,7 +69,7 @@ const SignUp = (props) => {
                        marginRight:5 
                     }]}>Already Have an Account?
                     </Text>
-                    <Text style={{ color: 'blue' }} onPress={()=>props.navigation.navigate('SignIn')}>
+                    <Text style={{ color: 'blue' }} onPress={()=>props.navigation.navigate('Sign In')}>
                         Sign In
                     </Text>
                 </View>
