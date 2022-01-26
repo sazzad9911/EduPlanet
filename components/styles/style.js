@@ -222,6 +222,35 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
 
+    topDesign: {
+        height: window.height - 550,
+        width: window.width,
+        backgroundColor: '#b0c4de',
+        borderBottomRightRadius: 400,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    logoDesign: {
+        height: window.height - 660,
+        width: window.width - 275,
+        backgroundColor: 'white',
+        borderRadius: 400,
+        marginTop: 55,
+        marginLeft: 0,
+        marginBottom: -25
+    },
+
+    logoImage: {
+        height: window.height - 660,
+        width: window.width - 275,
+        backgroundColor: 'white',
+        borderRadius: 400,
+        marginTop: 55,
+        marginLeft: 0,
+        marginBottom: -25
+    }
+
 })
 
 export default style
