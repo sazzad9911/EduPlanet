@@ -5,6 +5,7 @@ import Profile from './Profile'
 import Dashboard from './Dashboard'
 import Search from './Search'
 import style from '../styles/style'
+import Icon from 'react-native-vector-icons/AntDesign'
 
 const Tab = createBottomTabNavigator();
 const window = Dimensions.get('window')
@@ -29,29 +30,42 @@ const TabBar = (props) => {
             justifyContent: 'center',
             alignItems: 'center'
         }}>
+
             <View style={{
-                backgroundColor:'#F49A14',
-                flexDirection:'row',
-                borderRadius:10,
-                padding:10,
-                marginBottom:10,
+                backgroundColor: '#a9a9a9',
+                flexDirection: 'row',
+                borderRadius: 10,
+
+                marginBottom: 10,
                 alignItems: 'center'
             }}>
-                <TouchableOpacity style={style.tabButton} onPress={()=>{
-                    navigation.navigate('Dashboard')
-                }}>
-                    <Text>Home</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={style.tabButton} onPress={()=>{
-                    navigation.navigate('Search')
-                }}>
-                    <Text>Search</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={style.tabButton} onPress={()=>{
-                    navigation.navigate('Profile')
-                }}>
-                    <Text>Profile</Text>
-                </TouchableOpacity>
+                <View>
+
+
+                    <TouchableOpacity style={style.tabButton} onPress={() => {
+                        navigation.navigate('Dashboard')
+
+                    }}>
+                        <Icon name="home" size={30} color="white" />
+                        <Text style={style.text}>Home</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity style={style.tabButton} onPress={() => {
+                        navigation.navigate('Search')
+                    }}>
+                        <Icon name="search1" size={30} color="white" />
+                        <Text style={style.text}>Search</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity style={style.tabButton} onPress={() => {
+                        navigation.navigate('Profile')
+                    }}>
+                        <Icon name="user" size={30} color="white" />
+                        <Text style={style.text}>Profile</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     )

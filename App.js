@@ -19,7 +19,7 @@ const App = () => {
         <Stack.Screen name="Categories" component={Categories} options={{ headerShown: true }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
-        <Stack.Screen name="Forget" component={Forget} options={{ headerShown: false }} />
+        <Stack.Screen name="Forget" component={Forget} options={{ headerShown: true }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
         
