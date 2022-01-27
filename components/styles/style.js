@@ -19,15 +19,6 @@ const style = StyleSheet.create({
         fontWeight: '200',
         color: 'white',
     },
-    tabButton: {
-        width: 110,
-        height: 80,
-        backgroundColor: '#9932cc',
-        marginLeft: 10,
-        marginRight: 10,
-        borderRadius: 10,
-        justifyContent: 'center',
-    },
     text: {
             fontSize: 16,
             fontWeight: '200',
@@ -153,16 +144,7 @@ const style = StyleSheet.create({
         text: {
             fontSize: 16,
             fontWeight: '200',
-            color: 'green',
-        },
-
-        tabButton: {
-            width: 100,
-            height: 40,
-            backgroundColor: 'white',
-            margin: 10,
-            justifyContent: 'center',
-            alignItems: 'center',
+            color: 'white',
         },
 
         viwe: {
@@ -235,9 +217,6 @@ const style = StyleSheet.create({
             marginTop: 50,
         },
 
-        borderRadius: 20,
-        backgroundColor: '#ffe4e1'
-    },
     categoriesText1: {
         fontSize: 19,
         color: 'black',
