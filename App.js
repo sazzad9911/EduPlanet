@@ -10,9 +10,11 @@ import Categories from './components/screens/Categories'
 import Forget from './components/screens/Forget'
 import Notification from './components/screens/Notification'
 import Profile from './components/screens/Profile';
+import Search from './components/screens/Search';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='SignUp'>

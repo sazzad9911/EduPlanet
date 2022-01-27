@@ -6,6 +6,7 @@ import Dashboard from './Dashboard'
 import Search from './Search'
 import style from '../styles/style'
 import Icon from 'react-native-vector-icons/AntDesign'
+import tabStyle from '../styles/tabStyle';
 
 const Tab = createBottomTabNavigator();
 const window = Dimensions.get('window')
@@ -35,35 +36,32 @@ const TabBar = (props) => {
                 backgroundColor: '#a9a9a9',
                 flexDirection: 'row',
                 borderRadius: 10,
-
                 marginBottom: 10,
                 alignItems: 'center'
             }}>
                 <View>
-
-
-                    <TouchableOpacity style={style.tabButton} onPress={() => {
+                    <TouchableOpacity style={tabStyle.tabButton} onPress={() => {
                         navigation.navigate('Dashboard')
 
                     }}>
                         <Icon name="home" size={30} color="white" />
-                        <Text style={style.text}>Home</Text>
+                        <Text style={tabStyle.text}>Home</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={style.tabButton} onPress={() => {
+                    <TouchableOpacity style={tabStyle.tabButton} onPress={() => {
                         navigation.navigate('Search')
                     }}>
                         <Icon name="search1" size={30} color="white" />
-                        <Text style={style.text}>Search</Text>
+                        <Text style={tabStyle.text}>Search</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={style.tabButton} onPress={() => {
+                    <TouchableOpacity style={tabStyle.tabButton} onPress={() => {
                         navigation.navigate('Profile')
                     }}>
                         <Icon name="user" size={30} color="white" />
-                        <Text style={style.text}>Profile</Text>
+                        <Text style={tabStyle.text}>Profile</Text>
                     </TouchableOpacity>
                 </View>
             </View>

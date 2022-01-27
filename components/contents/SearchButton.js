@@ -2,9 +2,11 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native'
 import style from '../styles/style';
-const Button = (props) => {
+import searchStyle from '../styles/searchStyle';
+
+const SearchButton = (props) => {
     return (
-        <TouchableOpacity style={[style.signUpButton, {
+        <TouchableOpacity style={[searchStyle.signUpButton, {
             justifyContent: 'center',
             alignItems: 'center'
         }]} onPress={() => props.onPress()}>
@@ -15,10 +17,11 @@ const Button = (props) => {
                 {
                     props.text ? props.text : '.'
                 }
-            </Text>           
+            </Text>
+            
 
         </TouchableOpacity>
     );
 };
 
-export default Button
+export default SearchButton
