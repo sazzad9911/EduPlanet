@@ -235,9 +235,7 @@ const style = StyleSheet.create({
             marginTop: 50,
         },
 
-        borderRadius: 20,
-        backgroundColor: '#ffe4e1'
-    },
+      
     categoriesText1: {
         fontSize: 19,
         color: 'black',
