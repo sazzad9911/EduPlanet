@@ -16,7 +16,11 @@
     "@react-navigation/native-stack": "^6.2.5",
     "react": "17.0.2",
     "react-native": "0.67.1",
+<<<<<<< HEAD
     "react-native-bouncy-checkbox": "^2.1.10",
+=======
+    "react-native-cli": "^2.0.1",
+>>>>>>> c8cc7478c608aff563716cb1196b45e47c935d95
     "react-native-drop-shadow": "^0.0.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.2",

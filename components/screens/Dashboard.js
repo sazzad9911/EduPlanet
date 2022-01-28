@@ -22,12 +22,10 @@ const Dashboard = () => {
                 </View>
             </View>
             <ScrollView horizontal={true}>
-                <DashCart dtext='Name' dIcon='user'></DashCart>
-                <View style={style.dashbord}></View>
-                <View style={style.dashbord}></View>
-                <View style={style.dashbord}></View>
-                <View style={style.dashbord}></View>
-
+                <DashCart dtext='Mobile design course for beginner.' dIcon='play'></DashCart>
+                <DashCart dtext='Mobile design course for beginner.' dIcon='play'></DashCart>
+                <DashCart dtext='Mobile design course for beginner.' dIcon='play'></DashCart>
+                <DashCart dtext='Mobile design course for beginner.' dIcon='play'></DashCart>
             </ScrollView>
         </View>
     );
