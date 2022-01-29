@@ -132,7 +132,7 @@ const style = StyleSheet.create({
         flexDirection: 'row'
     },
 
-<<<<<<< HEAD
+
     headLine: {
         fontSize: 25,
         fontWeight: '700',
@@ -147,13 +147,13 @@ const style = StyleSheet.create({
         fontWeight: '200',
         color: 'green',
     },
-=======
-        text: {
-            fontSize: 16,
-            fontWeight: '200',
-            color: 'white',
-        },
->>>>>>> c8cc7478c608aff563716cb1196b45e47c935d95
+
+    text: {
+        fontSize: 16,
+        fontWeight: '200',
+        color: 'white',
+    },
+
 
     tabButton: {
         width: 100,
@@ -169,6 +169,7 @@ const style = StyleSheet.create({
         width: window.width,
         backgroundColor: 'white',
     },
+
     viwe1: {
         height: 130,
         width: window.width,
@@ -226,19 +227,18 @@ const style = StyleSheet.create({
         marginTop: 30,
         borderWidth: 0.5,
         padding: 10,
-
-<<<<<<< HEAD
         borderRadius: 20,
         backgroundColor: '#ffe4e1'
     },
+
     marginTop: {
         marginTop: 50,
-=======
+    },
+
     categoriesText1: {
         fontSize: 19,
         color: 'black',
         alignItems: 'center',
->>>>>>> c8cc7478c608aff563716cb1196b45e47c935d95
     },
 
 
