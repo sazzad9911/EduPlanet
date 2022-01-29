@@ -11,13 +11,18 @@ import Forget from './components/screens/Forget'
 import Notification from './components/screens/Notification'
 import Profile from './components/screens/Profile';
 import Search from './components/screens/Search';
+import AddVideos from './components/screens/AddVideos';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
 
   return (
     <NavigationContainer>
+<<<<<<< Updated upstream
       <Stack.Navigator initialRouteName='Home'>
+=======
+      <Stack.Navigator initialRouteName='Explore'>
+>>>>>>> Stashed changes
         <Stack.Screen name='Explore' component={Explore} options={{ headerShown: false }} />
         <Stack.Screen name="Categories" component={Categories} options={{ headerShown: true }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
@@ -26,6 +31,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
         <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
+        <Stack.Screen name="Add Video" component={AddVideos} options={{ headerShown: true }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

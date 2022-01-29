@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import style from '../styles/style'
-const Explore = () => {
+const Explore = (props) => {
+    const navigation=props.navigation
     return (
         <View style={style.allOver}>
             <View style={style.textView}>
@@ -25,7 +26,7 @@ const Explore = () => {
                             <View style={style.dotView1} />
                         </View>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.navigate('SignIn')}>
                         <View style={style.bottomButton}>
                             <Text style={style.bottomButtonText}>Next</Text>
                         </View>
