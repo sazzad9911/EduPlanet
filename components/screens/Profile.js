@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native'
 import style from '../styles/style';
 import ProfileCart from '../cart/ProfileCart';
 import EditText from '../cart/EditText';
@@ -31,16 +31,21 @@ const Profile = () => {
                         </View>
 
                     </View>
-                    <View style={style.profileviweH}>
+                    <TouchableOpacity style={style.profileviweH}>
                         <Text style={style.profiletextE}>+ Become Member</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={style.profileviweI}>
-                    
+
                     <EditText ptext='Name' pIcon='user'></EditText>
+                    <View style={{ height: 2, width: 400, backgroundColor: 'black', marginTop: 5, marginLeft: 10 }}></View>
                     <EditText ptext='Email' pIcon='mail'></EditText>
+                    <View style={{ height: 2, width: 400, backgroundColor: 'black', marginTop: 5, marginLeft: 10 }}></View>
                     <EditText ptext='Password' pIcon='lock'></EditText>
+                    <View style={{ height: 2, width: 400, backgroundColor: 'black', marginTop: 5, marginLeft: 10 }}></View>
                     <EditText ptext='Contact Number' pIcon='phone'></EditText>
+                    <View style={{ height: 2, width: 400, backgroundColor: 'black', marginTop: 5, marginLeft: 10 }}></View>
+                    <View style={{marginTop:10}}></View>
                 </View>
             </View>
         </ScrollView>
