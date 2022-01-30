@@ -211,7 +211,8 @@ const style = StyleSheet.create({
     viewsignup: {
         borderRadius: 40,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        minHeight:window.height
     },
     signUpButton: {
         height: 40,
@@ -248,13 +249,12 @@ const style = StyleSheet.create({
         backgroundColor: '#b0c4de',
         borderBottomRightRadius: 400,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     logoDesign: {
         height: window.height - 665,
         width: window.width - 275,
-        backgroundColor: 'white',
         borderRadius: 400,
         marginTop: 55,
         marginLeft: 0,

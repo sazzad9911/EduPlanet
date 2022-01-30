@@ -5,9 +5,6 @@ const tabStyle = StyleSheet.create({
 tabButton: {
     width: 110,
     height: 80,
-    backgroundColor: '#9932cc',
-    marginLeft: 10,
-    marginRight: 10,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems:'center'

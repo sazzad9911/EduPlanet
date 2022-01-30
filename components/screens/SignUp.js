@@ -60,16 +60,17 @@ const SignUp = (props) => {
                 />
 
                 <View style={{
-                    marginTop: 200
+                    marginTop: 100
                 }}>
                     <Button text='Sign Up' />
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: 30 }}>
                     <Text style={[style.text, {
-                        marginRight: 5
+                        marginRight: 5,
+                        color: 'black'
                     }]}>Already Have an Account?
                     </Text>
-                    <Text style={{ color: 'blue' }} onPress={() => props.navigation.navigate('Sign In')}>
+                    <Text style={{ color: 'blue',fontWeight: 'bold' }} onPress={() => props.navigation.navigate('SignIn')}>
                         Sign In
                     </Text>
                 </View>

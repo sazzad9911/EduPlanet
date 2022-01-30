@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, Button } from 'react-native'
 import style from '../styles/style'
 import DashCart from '../cart/DashCart';
-const Dashboard = () => {
+const Dashboard = (props) => {
+    const navigation = props.navigation
     return (
         <View>
             <View>
@@ -14,7 +15,7 @@ const Dashboard = () => {
                     <View style={{ position: 'absolute' }}>
                         <Text style={{ fontSize: 30, marginTop: 15, marginLeft: 15, color: 'white' }}>HOW TO</Text>
                         <Text style={{ fontSize: 18, marginLeft: 15, color: 'white' }}>Make your brand more visible {"\n"}with your checklist</Text>
-                        <TouchableOpacity style={{ height: 25, width: 130, backgroundColor: 'white', marginTop: 110, marginLeft: 240, borderRadius: 15 }}>
+                        <TouchableOpacity onPress={()=>navigation.navigate('Search')} style={{ height: 25, width: 130, backgroundColor: 'white', marginTop: 110, marginLeft: 240, borderRadius: 15 }}>
                             <Text style={{ color: 'black', fontSize: 18, marginLeft: 10 }}>Start Learning</Text>
                         </TouchableOpacity>
                     </View>

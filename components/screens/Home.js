@@ -1,22 +1,34 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, Dimensions } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useRoute } from '@react-navigation/native';
 import Profile from './Profile'
 import Dashboard from './Dashboard'
 import Search from './Search'
 import style from '../styles/style'
 import Icon from 'react-native-vector-icons/AntDesign'
 import tabStyle from '../styles/tabStyle';
+import HomeHeader from '../contents/HomeHeader'
 
 const Tab = createBottomTabNavigator();
 const window = Dimensions.get('window')
 
 const Home = (props) => {
+    const [Admin,setAdmin] = React.useState(null)
+
+    if(Admin) {
+        props.navigation.navigate('Add Video')
+    }
     return (
         <Tab.Navigator tabBar={props => <TabBar {...props}></TabBar>}>
-            <Tab.Screen name="Dashboard" component={Dashboard} />
-            <Tab.Screen name="Search" component={Search} />
-            <Tab.Screen name="Profile" component={Profile} />
+            <Tab.Screen name="Dashboard" component={Dashboard} options={{ header:(props)=> <HomeHeader {...props}/>}}/>
+            <Tab.Screen name="Search" component={Search} options={{ headerShown: false }}/>
+            <Tab.Screen name="Profile" component={Profile} options={{header:()=><Text style={{
+                backgroundColor:'white',
+                fontSize:20,
+                textAlign: 'center',
+                padding: 10,
+            }}>Profile</Text>}}/>
         </Tab.Navigator>
     );
 };
@@ -24,10 +36,11 @@ export default Home;
 
 const TabBar = (props) => {
     const navigation = props.navigation;
+    const state = props.state;
+    //console.log();
 
     return (
         <View style={{
-            width: window.width,
             justifyContent: 'center',
             alignItems: 'center'
         }}>
@@ -37,10 +50,11 @@ const TabBar = (props) => {
                 flexDirection: 'row',
                 borderRadius: 10,
                 marginBottom: 10,
-                alignItems: 'center'
+                alignItems: 'center',
+                padding:0,
             }}>
                 <View>
-                    <TouchableOpacity style={tabStyle.tabButton} onPress={() => {
+                    <TouchableOpacity style={[tabStyle.tabButton,{backgroundColor: state.index==0?'#6C3483':'#a9a9a9'}]} onPress={() => {
                         navigation.navigate('Dashboard')
 
                     }}>
@@ -49,7 +63,7 @@ const TabBar = (props) => {
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={tabStyle.tabButton} onPress={() => {
+                    <TouchableOpacity style={[tabStyle.tabButton,{marginLeft:10,marginRight:10,backgroundColor: state.index==1?'#6C3483':'#a9a9a9'}]} onPress={() => {
                         navigation.navigate('Search')
                     }}>
                         <Icon name="search1" size={30} color="white" />
@@ -57,7 +71,7 @@ const TabBar = (props) => {
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={tabStyle.tabButton} onPress={() => {
+                    <TouchableOpacity style={[tabStyle.tabButton,{backgroundColor: state.index==2?'#6C3483':'#a9a9a9'}]} onPress={() => {
                         navigation.navigate('Profile')
                     }}>
                         <Icon name="user" size={30} color="white" />

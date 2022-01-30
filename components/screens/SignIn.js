@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, Text, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TextInput, ScrollView, TouchableOpacity,StatusBar } from 'react-native'
 import SignInStyle from '../styles/SignInStyle'
 import style from '../styles/style'
 import Button from '../contents/Button'
 
 const SignIn = (props) => {
+    const navigation = props.navigation
     const [number, onChangeNumber] = React.useState(null);
     return (
         <ScrollView>
@@ -47,14 +48,13 @@ const SignIn = (props) => {
                 <View style={{
                     marginTop: 10
                 }}>
-                    <Button text="Log In" />
+                    <Button text="Log In" onPress={() =>navigation.navigate('Home')}/>
                 </View>
-                <TouchableOpacity style={SignInStyle.underLogin}>
-                    <Text>Remember me.</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Forget')}style={SignInStyle.underLogin}>
                     <Text>Forgot password?</Text>
                 </TouchableOpacity>
                 <View style={SignInStyle.bottomSignIn}>
-                    <Button text="Sign Up Now" />
+                    <Button text="Sign Up Now" onPress={()=>navigation.navigate('Categories')}/>
                 </View>
             </View>
         </ScrollView>

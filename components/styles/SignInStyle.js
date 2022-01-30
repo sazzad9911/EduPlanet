@@ -16,7 +16,6 @@ const SignInStyle = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'row'
     },
 
     underDotview: {
