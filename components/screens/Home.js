@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 const window = Dimensions.get('window')
 
 const Home = (props) => {
-    const [Admin,setAdmin] = React.useState(null)
+    const [Admin,setAdmin] = React.useState(true)
 
     if(Admin) {
         props.navigation.navigate('Add Video')
