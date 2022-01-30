@@ -4,20 +4,20 @@ import Icon from 'react-native-vector-icons/Entypo';
 import style from "../styles/style";
 
 const EditText = (props) => {
-  const [text, onChangeText] = React.useState("Text");
+  const [text, onChangeText] = React.useState();
   const [number, onChangeNumber] = React.useState(null);
 
   return (
     <View style={style.profileCart}>
             <View style={{ flexDirection: 'row' }}>
                 <View>
-                    <Icon name={props.pIcon} size={45} color="black" style={{ marginTop: 20 }} />
+                    <Icon name={props.pIcon} size={40} color="black" style={{ margin:25,}} />
                 </View>
                 <View>
                     <Text style={{ fontSize: 18, marginLeft:10,marginTop:15 }}>{props.ptext}</Text>
                     <SafeAreaView>
                         <TextInput
-                            style={{ fontSize:30,marginLeft:10}}
+                            style={{fontSize:30,marginLeft:10}}
                             onChangeText={onChangeText}
                             value={text}
                             label='Name'
@@ -27,8 +27,7 @@ const EditText = (props) => {
                 </View>
 
             </View>
-            <View style={{ height: 2, width: 350, backgroundColor: 'black', marginTop: 5, marginLeft: 10 }}>
-            </View>
+            
         </View>
   );
 };

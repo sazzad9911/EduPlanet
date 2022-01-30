@@ -280,8 +280,9 @@ const style = StyleSheet.create({
     },
     profileviwea: {
         height: 220,
-        width: 380,
+        width:window.width-15,
         marginTop: 15,
+        
         backgroundColor: '#FEE0DE',
         borderRadius: 15,
     },
@@ -317,6 +318,7 @@ const style = StyleSheet.create({
     profileviweB: {
         height: 75,
         width: 75,
+        margin:10
     },
     profileviweD: {
         height: 170,
@@ -330,7 +332,7 @@ const style = StyleSheet.create({
         height: 170,
         width: 295,
         borderRadius: 15,
-        marginLeft: 5,
+        marginLeft: 15,
         backgroundColor: '#FEE0DE'
     },
     profileviweF: {
@@ -355,8 +357,8 @@ const style = StyleSheet.create({
         backgroundColor: 'white'
     },
     profileviweI: {
-        height: 330,
-        width: 380,
+        width:window.width-15,
+        height:window.height,
         marginTop: 15,
         backgroundColor: '#FEE0DE',
         borderRadius: 15,
