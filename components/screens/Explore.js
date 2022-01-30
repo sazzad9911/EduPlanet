@@ -1,8 +1,16 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import style from '../styles/style'
+import auth from '@react-native-firebase/auth'
+
 const Explore = (props) => {
     const navigation=props.navigation
+
+    auth().onAuthStateChanged(user =>{
+        if(user){
+            navigation.navigate('Home',{user: user})
+        }
+    })
     return (
         <View style={style.allOver}>
             <View style={style.textView}>
@@ -11,9 +19,7 @@ const Explore = (props) => {
                 <View>
                     <Image
                         style={style.image}
-                        source={{
-                            uri: 'https://ysseglobal.org/blog/wp-content/uploads/2019/09/YSSE-BLOG-2003-1.jpg'
-                        }}
+                        source={require('../file/YSSE-BLOG-2003-1.jpg')}
                     />
                 </View>
                 <View style={style.bottom}>

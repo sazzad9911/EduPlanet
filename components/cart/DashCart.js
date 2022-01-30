@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import style from "../styles/style";
 import DropShadow from "react-native-drop-shadow";
 import VideoPlayer from 'react-native-video-controls';
+import Loader from './../contents/Loader';
 
 
 

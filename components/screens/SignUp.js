@@ -1,20 +1,26 @@
 import React from 'react';
-import { View, Text, TextInput, ScrollView } from 'react-native'
+import { View, Text, TextInput, ScrollView,Alert } from 'react-native'
 import style from '../styles/style';
 import Button from '../contents/Button';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import auth from '@react-native-firebase/auth'
+import firestore from '@react-native-firebase/firestore'
+import Loader from '../contents/Loader'
 
 
 const Stack = createNativeStackNavigator();
 
 const SignUp = (props) => {
 
-    const [number, onChangeNumber] = React.useState(null);
-    const [number1, onChangeNumber1] = React.useState(null);
-    const [number2, onChangeNumber2] = React.useState(null);
-    const [number3, onChangeNumber3] = React.useState(null);
-    const [number4, onChangeNumber4] = React.useState(null);
+    const [Name, onChangeName] = React.useState(null);
+    const [Email, onChangeEmail] = React.useState(null);
+    const [Institution, onChangeInstitution] = React.useState(null);
+    const [Password, onChangePassword] = React.useState(null);
+    const [RePassword, onChangeRePassword] = React.useState(null);
+    const [loader,setLoader]= React.useState(false);
+    const params=props.route.params;
+    const navigation=props.navigation
 
     return (
         <ScrollView >
@@ -24,37 +30,37 @@ const SignUp = (props) => {
 
                 <TextInput
                     style={style.input}
-                    onChangeText={onChangeNumber}
-                    value={number}
+                    onChangeText={onChangeName}
+                    value={Name}
                     placeholder="Name"
                     placeholderTextColor={'black'}
 
                 />
                 <TextInput
                     style={style.input}
-                    onChangeText={onChangeNumber1}
-                    value={number1}
+                    onChangeText={onChangeEmail}
+                    value={Email}
                     placeholder="Email"
                     placeholderTextColor={'black'}
                 />
                 <TextInput
                     style={style.input}
-                    onChangeText={onChangeNumber2}
-                    value={number2}
+                    onChangeText={onChangeInstitution}
+                    value={Institution}
                     placeholder="Institution"
                     placeholderTextColor={'black'}
                 />
                 <TextInput
                     style={style.input}
-                    onChangeText={onChangeNumber3}
-                    value={number3}
+                    onChangeText={onChangePassword}
+                    value={Password}
                     placeholder="Password"
                     placeholderTextColor={'black'}
                 />
                 <TextInput
                     style={style.input}
-                    onChangeText={onChangeNumber4}
-                    value={number4}
+                    onChangeText={onChangeRePassword}
+                    value={RePassword}
                     placeholder="Retype Password"
                     placeholderTextColor={'black'}
                 />
@@ -62,7 +68,37 @@ const SignUp = (props) => {
                 <View style={{
                     marginTop: 100
                 }}>
-                    <Button text='Sign Up' />
+                    <Button text='Sign Up' onPress={()=>{
+                        if(Password!=RePassword){
+                            Alert.alert('Opps!','Password are not matched')
+                            return;
+                        }if(!Name || !Institution || !params.category){
+                            Alert.alert('Opps!','Name and Institution name is required')
+                            return;
+                        }
+                        setLoader(true)
+                        auth().signInWithEmailAndPassword(Email,Password).then(()=>{
+                            auth().onAuthStateChanged(user=>{
+                                firestore().collection('UserInformation').doc(user.uid).set({
+                                    Image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyc_wMXS_hHkfJynXufjZ3DSgNu7B8Ob0A8wWROuHTPzM2o6Q8Z1PPnqBSDNRk64AqNkc&usqp=CAU',
+                                    Name:Name,
+                                    Title:params.category,
+                                    Email:Email.toLowerCase(),
+                                    Uid:user.uid,
+                                    Institution:Institution
+                                }).then(()=>{
+                                    navigation.navigate('Home',{user:user})
+                                    setLoader(false)
+                                }).catch(err=>{
+                                    Alert.alert(err.code,err.message)
+                                    setLoader(false)
+                                })
+                            })
+                        }).catch(err=>{
+                            Alert.alert(err.code,err.message)
+                            setLoader(false)
+                        })
+                    }}/>
                 </View>
                 <View style={{ flexDirection: 'row', marginTop: 30 }}>
                     <Text style={[style.text, {
@@ -74,6 +110,7 @@ const SignUp = (props) => {
                         Sign In
                     </Text>
                 </View>
+                <Loader visible={loader} text="Loading..."/>
             </View>
 
         </ScrollView>
