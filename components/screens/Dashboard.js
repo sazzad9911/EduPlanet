@@ -8,6 +8,7 @@ import Loader from '../contents/Loader'
 const Dashboard = (props) => {
     const navigation = props.navigation
     const user = props.route.params.user
+    const title = props.route.params.title
     const [data, setData] = React.useState(null)
     const [data2,setData2] = React.useState(null)
     const window = Dimensions.get('window')
@@ -56,8 +57,12 @@ const Dashboard = (props) => {
                 {
                     data ? (
                         data.length > 0 ? (
-                            data.map((d, i) => (
-                                <DashCart key={i} data={d} dIcon='play'></DashCart>
+                            data.map((d) => (
+                                d.Title ==title?(
+                                    <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
+                                ):(
+                                    <View></View>
+                                )
                             ))
                         ) : (
                             <View style={{
@@ -85,8 +90,12 @@ const Dashboard = (props) => {
                 {
                     data ? (
                         data.length > 0 ? (
-                            data.map((d, i) => (
-                                <DashCart key={i} data={d} dIcon='play'></DashCart>
+                            data.map((d) => (
+                                d.Title ==title?(
+                                    <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
+                                ):(
+                                    <View></View>
+                                )
                             ))
                         ) : (
                             <View style={{

@@ -90,7 +90,7 @@ const SignUp = (props) => {
                                     Admin:false,
                                     Progress:0
                                 }).then(()=>{
-                                    navigation.navigate('Home',{email:user.email,uid:user.uid})
+                                    navigation.navigate('Home',{email:user.email,uid:user.uid,title:params.category})
                                     setLoader(false)
                                 }).catch(err=>{
                                     Alert.alert(err.code,err.message)

@@ -279,9 +279,8 @@ const style = StyleSheet.create({
     },
     profileviwea: {
         height: 220,
-        width:window.width-15,
+        width:window.width-20,
         marginTop: 15,
-        
         backgroundColor: '#FEE0DE',
         borderRadius: 15,
     },
@@ -351,7 +350,7 @@ const style = StyleSheet.create({
     },
     profileviweH: {
         height: 40,
-        width: 250,
+        width: 250, 
         marginLeft: 60,
         borderRadius: 23,
         backgroundColor: 'white'

@@ -38,7 +38,7 @@ const Home = (props) => {
 
     return (
         <Tab.Navigator tabBar={props => <TabBar {...props}></TabBar>}>
-            <Tab.Screen name="Dashboard" component={Dashboard} initialParams={{user:UserInformation}} options={{ header: (props) => <HomeHeader {...props} user={UserInformation} /> }} />
+            <Tab.Screen name="Dashboard" component={Dashboard} initialParams={{user:UserInformation,title:params.title}} options={{ header: (props) => <HomeHeader {...props} user={UserInformation} /> }} />
             <Tab.Screen name="Search" component={Search} initialParams={{user:UserInformation}} options={{ headerShown: false }} />
             <Tab.Screen name="Profile" initialParams={{user:UserInformation}} component={Profile} options={{
                 header: () => <Text style={{

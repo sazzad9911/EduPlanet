@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import style from '../styles/style'
 import auth from '@react-native-firebase/auth'
+import firestore from '@react-native-firebase/firestore'
 
 const Explore = (props) => {
     const navigation = props.navigation
@@ -9,7 +10,10 @@ const Explore = (props) => {
     React.useEffect(() => {
         auth().onAuthStateChanged(user => {
             if (user) {
-                navigation.navigate('Home', { email: user.email, uid: user.uid })
+                firestore().collection('UserInformation')
+                .doc(user.uid).get().then(doc => {
+                    navigation.navigate('Home', { email: user.email, uid: user.uid,title: doc.get('Title')})
+                })
             }
         })
     },[])
