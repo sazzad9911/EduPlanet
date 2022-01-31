@@ -61,7 +61,7 @@ const Dashboard = (props) => {
                                 d.Title ==title?(
                                     <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
                                 ):(
-                                    <View></View>
+                                    <View key={d.Id}></View>
                                 )
                             ))
                         ) : (
@@ -94,7 +94,7 @@ const Dashboard = (props) => {
                                 d.Title ==title?(
                                     <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
                                 ):(
-                                    <View></View>
+                                    <View key={d.Id}></View>
                                 )
                             ))
                         ) : (

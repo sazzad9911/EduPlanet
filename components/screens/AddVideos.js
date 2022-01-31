@@ -95,7 +95,7 @@ const AddVideos = () => {
                     }>
                     <Picker.Item label="Category" value="" />
                     <Picker.Item label="Mobile Design" value="Mobile Design" />
-                    <Picker.Item label="3D modeling" value="3D modeling" />
+                    <Picker.Item label="3D Modeling" value="3D Modeling" />
                     <Picker.Item label="Web Designing" value="Web Designing" />
                     <Picker.Item label="Illustrations" value="Illustrations" />
                     <Picker.Item label="Drawing" value="Drawing" />
