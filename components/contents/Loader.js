@@ -6,7 +6,7 @@ const Loader = (props) => {
     return (
         <AnimatedLoader
             visible={props.visible}
-            overlayColor="rgba(255, 255, 255, 0.425)"
+            overlayColor="rgba(255, 255, 255, 0.767)"
             source={require("../file/35667-parallaxdesk.json")}
             animationStyle={{ 
                 height:100,
@@ -14,7 +14,10 @@ const Loader = (props) => {
             }}
             speed={1}
         >
-            <Text>{props.text}</Text>
+            <Text style={{
+                fontSize:18,
+                fontWeight: '100'
+            }}>{props.text}</Text>
         </AnimatedLoader>
     );
 };

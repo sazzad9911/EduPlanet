@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 
 const HomeHeader = (props) => {
     const [Today,setDate] =React.useState(null);
+    const user=props.user;
 
     React.useEffect(() => {
         const date=new Date();
@@ -22,7 +23,7 @@ const HomeHeader = (props) => {
                 <Text style={{
                     fontSize:22,
                     marginLeft:20,
-                }}>Hi Shariar !</Text>
+                }}>Hi {user?user.Name:'.'} !</Text>
                 <Text style={{
                     marginLeft:20,
                 }}>{Today}</Text>

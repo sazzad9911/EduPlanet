@@ -6,9 +6,10 @@ import searchStyle from '../styles/searchStyle';
 
 const SearchButton = (props) => {
     return (
-        <TouchableOpacity style={[searchStyle.signUpButton, {
+        <TouchableOpacity disabled={props.disabled} style={[searchStyle.signUpButton, {
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            backgroundColor:props.disabled?'#D5D8DC':'#faebd7'
         }]} onPress={() => props.onPress()}>
             <Text style={{
                 fontSize: 15,

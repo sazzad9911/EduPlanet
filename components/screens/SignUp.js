@@ -77,7 +77,8 @@ const SignUp = (props) => {
                             return;
                         }
                         setLoader(true)
-                        auth().signInWithEmailAndPassword(Email,Password).then(()=>{
+                        auth().createUserWithEmailAndPassword(Email, Password)
+                        .then(()=>{
                             auth().onAuthStateChanged(user=>{
                                 firestore().collection('UserInformation').doc(user.uid).set({
                                     Image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyc_wMXS_hHkfJynXufjZ3DSgNu7B8Ob0A8wWROuHTPzM2o6Q8Z1PPnqBSDNRk64AqNkc&usqp=CAU',
@@ -85,9 +86,11 @@ const SignUp = (props) => {
                                     Title:params.category,
                                     Email:Email.toLowerCase(),
                                     Uid:user.uid,
-                                    Institution:Institution
+                                    Institution:Institution,
+                                    Admin:false,
+                                    Progress:0
                                 }).then(()=>{
-                                    navigation.navigate('Home',{user:user})
+                                    navigation.navigate('Home',{email:user.email,uid:user.uid})
                                     setLoader(false)
                                 }).catch(err=>{
                                     Alert.alert(err.code,err.message)

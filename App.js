@@ -10,8 +10,8 @@ import Categories from './components/screens/Categories'
 import Forget from './components/screens/Forget'
 import Notification from './components/screens/Notification'
 import Profile from './components/screens/Profile';
-import Search from './components/screens/Search';
 import AddVideos from './components/screens/AddVideos';
+import SearchList from './components/screens/SearchList';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -28,6 +28,7 @@ const App = () => {
         <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
         <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
         <Stack.Screen name="Add Video" component={AddVideos} options={{ headerShown: true }} />
+        <Stack.Screen name="Search List" component={SearchList} options={{ headerShown:true}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

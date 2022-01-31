@@ -4,13 +4,15 @@ import style from '../styles/style'
 import auth from '@react-native-firebase/auth'
 
 const Explore = (props) => {
-    const navigation=props.navigation
+    const navigation = props.navigation
 
-    auth().onAuthStateChanged(user =>{
-        if(user){
-            navigation.navigate('Home',{user: user})
-        }
-    })
+    React.useEffect(() => {
+        auth().onAuthStateChanged(user => {
+            if (user) {
+                navigation.navigate('Home', { email: user.email, uid: user.uid })
+            }
+        })
+    },[])
     return (
         <View style={style.allOver}>
             <View style={style.textView}>
@@ -32,7 +34,7 @@ const Explore = (props) => {
                             <View style={style.dotView1} />
                         </View>
                     </View>
-                    <TouchableOpacity onPress={()=>navigation.navigate('SignIn')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
                         <View style={style.bottomButton}>
                             <Text style={style.bottomButtonText}>Next</Text>
                         </View>
