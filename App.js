@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native'
+import { View, Text,LogBox } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignIn from './components/screens/SignIn'
@@ -10,22 +10,25 @@ import Categories from './components/screens/Categories'
 import Forget from './components/screens/Forget'
 import Notification from './components/screens/Notification'
 import Profile from './components/screens/Profile';
-import Search from './components/screens/Search';
-
+import AddVideos from './components/screens/AddVideos';
+import SearchList from './components/screens/SearchList';
+LogBox.ignoreAllLogs()
 const Stack = createNativeStackNavigator();
 const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='SignUp'>
+      <Stack.Navigator initialRouteName='Explore'>
         <Stack.Screen name='Explore' component={Explore} options={{ headerShown: false }} />
         <Stack.Screen name="Categories" component={Categories} options={{ headerShown: true }} />
         <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
-        <Stack.Screen name="Forget" component={Forget} options={{ headerShown: true }} />
+        <Stack.Screen name="Forget" component={Forget} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
         <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
+        <Stack.Screen name="Add Video" component={AddVideos} options={{ headerShown: true }} />
+        <Stack.Screen name="Search List" component={SearchList} options={{ headerShown:true}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

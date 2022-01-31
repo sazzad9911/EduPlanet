@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1011200432584",
+    "project_id": "eduplanet-3b36a",
+    "storage_bucket": "eduplanet-3b36a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011200432584:android:21f376f42d5d1169e188fd",
+        "android_client_info": {
+          "package_name": "com.eduplanet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011200432584-h4c1kquc3v93ch1ub6bl155ib334kn3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eduplanet",
+            "certificate_hash": "5d4e15cc3efb844624ae9c24fcad94000101320f"
+          }
+        },
+        {
+          "client_id": "1011200432584-le9fh5qiud9bsgg5v6fpitb9cmqcdapu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCabV9ON2GScOzrpZ8R1-LCsA5cclGE2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011200432584-le9fh5qiud9bsgg5v6fpitb9cmqcdapu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

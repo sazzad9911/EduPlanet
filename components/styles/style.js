@@ -20,202 +20,221 @@ const style = StyleSheet.create({
         color: 'white',
     },
     text: {
-            fontSize: 16,
-            fontWeight: '200',
-            color: 'green',
-        },
-        tabButton: {
-            width: 100,
-            height: 40,
-            backgroundColor: 'white',
-            margin: 10,
-            justifyContent: 'center',
+        fontSize: 16,
+        fontWeight: '200',
+        color: 'green',
+    },
+    tabButton: {
+        width: 100,
+        height: 40,
+        backgroundColor: 'white',
+        margin: 10,
+        justifyContent: 'center',
 
-            alignItems: 'center',
-        },
+        alignItems: 'center',
+    },
 
-        allOver: {
-            height: 792,
-            width: 432,
-            backgroundColor: 'white',
-            borderRadius: 40,
-            shadowColor: "#000",
-            shadowOffset: { width: 3, height: 3 },
-            shadowOpacity: 0.5,
-            shadowRadius: 3.84,
-            elevation: 5
-        },
+    allOver: {
+        height: 792,
+        width: 432,
+        backgroundColor: 'white',
+        borderRadius: 40,
+        shadowColor: "#000",
+        shadowOffset: { width: 3, height: 3 },
+        shadowOpacity: 0.5,
+        shadowRadius: 3.84,
+        elevation: 5
+    },
 
-        textView: {
-            height: 300,
-            width: 220,
-            backgroundColor: 'white',
-            marginTop: 100,
-            marginLeft: 45,
-        },
+    textView: {
+        height: 300,
+        width: 220,
+        backgroundColor: 'white',
+        marginTop: 100,
+        marginLeft: 45,
+    },
 
-        text1: {
-            fontSize: 20,
-            color: 'black',
-            fontWeight: '600',
-            width: 400
-        },
+    text1: {
+        fontSize: 20,
+        color: 'black',
+        fontWeight: '600',
+        width: 400
+    },
 
-        image: {
-            height: 180,
-            width: 350,
-            backgroundColor: 'white',
-            marginTop: 50,
-            borderRadius: 12
-        },
+    image: {
+        height: 180,
+        width: 350,
+        backgroundColor: 'white',
+        marginTop: 50,
+        borderRadius: 12
+    },
 
-        dotView: {
-            height: 17,
-            width: 17,
-            borderRadius: 80,
-            backgroundColor: 'black',
-            marginLeft: 12,
-            marginTop: 28
-        },
+    dotView: {
+        height: 17,
+        width: 17,
+        borderRadius: 80,
+        backgroundColor: 'black',
+        marginLeft: 12,
+        marginTop: 28
+    },
 
-        dotView1: {
-            height: 13,
-            width: 13,
-            borderRadius: 80,
-            backgroundColor: 'white',
-            marginLeft: 2,
-            marginTop: 2
-        },
+    dotView1: {
+        height: 13,
+        width: 13,
+        borderRadius: 80,
+        backgroundColor: 'white',
+        marginLeft: 2,
+        marginTop: 2
+    },
 
-        bottom: {
-            height: 150,
-            width: 400,
-            backgroundColor: 'white',
-            marginTop: 70,
-            flexDirection: 'row'
-        },
+    bottom: {
+        height: 150,
+        width: 400,
+        backgroundColor: 'white',
+        marginTop: 70,
+        flexDirection: 'row'
+    },
 
-        bottomButton: {
-            height: 55,
-            width: 140,
-            backgroundColor: '#dda0dd',
-            borderTopLeftRadius: 50,
-            borderBottomLeftRadius: 50,
-            marginLeft: 81,
-            marginTop: 48
-        },
+    bottomButton: {
+        height: 55,
+        width: 140,
+        backgroundColor: '#dda0dd',
+        borderTopLeftRadius: 50,
+        borderBottomLeftRadius: 50,
+        marginLeft: 81,
+        marginTop: 48
+    },
 
-        bottomButtonText: {
-            fontSize: 28,
-            color: 'black',
-            justifyContent: 'center',
-            marginLeft: 48,
-            marginTop: 6,
-            fontWeight: '400'
-        },
+    bottomButtonText: {
+        fontSize: 28,
+        color: 'black',
+        justifyContent: 'center',
+        marginLeft: 48,
+        marginTop: 6,
+        fontWeight: '400'
+    },
 
-        bottomView: {
-            height: 70,
-            width: 150,
-            backgroundColor: 'white',
-            marginTop: 40,
-            marginLeft: 15,
-            flexDirection: 'row'
-        },
+    bottomView: {
+        height: 70,
+        width: 150,
+        backgroundColor: 'white',
+        marginTop: 40,
+        marginLeft: 15,
+        flexDirection: 'row'
+    },
 
-        bottomView1: {
-            height: 70,
-            width: 150,
-            backgroundColor: 'red',
-            marginTop: 100,
-            marginLeft: 15,
-            flexDirection: 'row'
-        },
+    bottomView1: {
+        height: 70,
+        width: 150,
+        backgroundColor: 'red',
+        marginTop: 100,
+        marginLeft: 15,
+        flexDirection: 'row'
+    },
 
-        headLine: {
-            fontSize: 25,
-            fontWeight: '700',
-            textAlign: 'center',
-            color: 'black',
-            marginBottom: 35,
-            marginTop: 30
-        },
 
-        text: {
-            fontSize: 16,
-            fontWeight: '200',
-            color: 'white',
-        },
+    headLine: {
+        fontSize: 25,
+        fontWeight: '700',
+        textAlign: 'center',
+        color: 'black',
+        marginBottom: 35,
+        marginTop: 30
+    },
 
-        viwe: {
-            height: window.height,
-            width: window.width,
-            backgroundColor: 'white',
-        },
-        viwe1: {
-            height: 130,
-            width: window.width,
-            backgroundColor: 'white',
-            flexDirection: 'row',
-        },
-        viwe2: {
-            height: 100,
-            width: 100,
-            backgroundColor: 'red',
-            flexDirection: 'column',
-        },
-        viwe3: {
-            height: 40,
-            width: 300,
-            marginTop: 70,
-            marginLeft: 45,
-            borderRadius: 20,
-            backgroundColor: '#F0C2BF',
-            //justifyContent:'center',
-            //alignContent:'center',
-        },
-        cartButton: {
-            height: 112,
-            width: 112,
-            marginTop: 10,
-            marginLeft: 20,
-            borderRadius: 10,
-            backgroundColor: '#FCF3DF',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        categoriesText: {
-            fontSize: 30,
-            color: 'black',
-            marginLeft: 90,
-        },
+    text: {
+        fontSize: 16,
+        fontWeight: '200',
+        color: 'green',
+    },
 
-        viewsignup: {
-            borderRadius: 40,
-            justifyContent: 'center',
-            alignItems: 'center'
-        },
-        signUpButton: {
-            height: 40,
-            width: 300,
-            borderWidth: 0.5,
-            padding: 10,
-            borderRadius: 20,
-            backgroundColor: '#dda0dd'
-        },
-        input: {
-            height: 40,
-            width: 300,
-            marginTop: 30,
-            borderWidth: 0.5,
-            padding: 10,
+    text: {
+        fontSize: 16,
+        fontWeight: '200',
+        color: 'white',
+    },
 
-            borderRadius: 20,
-            backgroundColor: '#ffe4e1'
-        },
-        marginTop: {
-            marginTop: 50,
-        },
+
+    tabButton: {
+        width: 100,
+        height: 40,
+        backgroundColor: 'white',
+        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    viwe: {
+        height: window.height,
+        width: window.width,
+        backgroundColor: 'white',
+    },
+
+    viwe1: {
+        height: 130,
+        width: window.width,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+    },
+    viwe2: {
+        height: 100,
+        width: 100,
+        backgroundColor: 'red',
+        flexDirection: 'column',
+    },
+    viwe3: {
+        height: 40,
+        width: 300,
+        marginTop: 70,
+        marginLeft: 45,
+        borderRadius: 20,
+        backgroundColor: '#F0C2BF',
+        //justifyContent:'center',
+        //alignContent:'center',
+    },
+    cartButton: {
+        height: 112,
+        width: 112,
+        marginTop: 10,
+        marginLeft: 20,
+        borderRadius: 10,
+        backgroundColor: '#FCF3DF',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    categoriesText: {
+        fontSize: 30,
+        color: 'black',
+        marginLeft: 90,
+    },
+
+    viewsignup: {
+        borderRadius: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight:window.height
+    },
+    signUpButton: {
+        height: 40,
+        width: 300,
+        borderWidth: 0.5,
+        padding: 10,
+        borderRadius: 20,
+        backgroundColor: '#dda0dd'
+    },
+    input: {
+        height: 40,
+        width: 300,
+        marginTop: 30,
+        borderWidth: 0.5,
+        padding: 10,
+        borderRadius: 20,
+        backgroundColor: '#ffe4e1'
+    },
+
+    marginTop: {
+        marginTop: 50,
+    },
 
     categoriesText1: {
         fontSize: 19,
@@ -230,13 +249,12 @@ const style = StyleSheet.create({
         backgroundColor: '#b0c4de',
         borderBottomRightRadius: 400,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     logoDesign: {
-        height: window.height - 660,
+        height: window.height - 665,
         width: window.width - 275,
-        backgroundColor: 'white',
         borderRadius: 400,
         marginTop: 55,
         marginLeft: 0,
@@ -254,7 +272,6 @@ const style = StyleSheet.create({
     },
 
     profileviwe: {
-        height: window.height,
         width: window.width,
         backgroundColor: 'white',
         alignItems: 'center',
@@ -262,7 +279,7 @@ const style = StyleSheet.create({
     },
     profileviwea: {
         height: 220,
-        width: 380,
+        width:window.width-20,
         marginTop: 15,
         backgroundColor: '#FEE0DE',
         borderRadius: 15,
@@ -299,6 +316,8 @@ const style = StyleSheet.create({
     profileviweB: {
         height: 75,
         width: 75,
+        margin:10,
+        borderRadius:35.5
     },
     profileviweD: {
         height: 170,
@@ -312,7 +331,7 @@ const style = StyleSheet.create({
         height: 170,
         width: 295,
         borderRadius: 15,
-        marginLeft: 5,
+        marginLeft: 15,
         backgroundColor: '#FEE0DE'
     },
     profileviweF: {
@@ -325,23 +344,25 @@ const style = StyleSheet.create({
     },
     profileviweG: {
         height: 15,
-        width: 200,
+        width: 290,
         borderRadius: 15,
         backgroundColor: 'blue'
     },
     profileviweH: {
         height: 40,
-        width: 250,
+        width: 250, 
         marginLeft: 60,
         borderRadius: 23,
         backgroundColor: 'white'
     },
     profileviweI: {
-        height: 330,
-        width: 380,
+        width:window.width-15,
+        paddingVertical: 10,
         marginTop: 15,
         backgroundColor: '#FEE0DE',
         borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     profileCart: {
         height: 90,

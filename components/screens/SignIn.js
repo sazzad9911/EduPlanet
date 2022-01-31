@@ -1,21 +1,81 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native'
+import React from 'react'
+import { View, Text, Image, TextInput, ScrollView, TouchableOpacity,Alert} from 'react-native'
+import SignInStyle from '../styles/SignInStyle'
 import style from '../styles/style'
-const SignIn = () => {
+import Button from '../contents/Button'
+import Loader from '../contents/Loader'
+import auth from '@react-native-firebase/auth'
+
+const SignIn = (props) => {
+    const navigation = props.navigation
+    const [Email, onChangeEmail] = React.useState(null);
+    const [Password, onChangePassword] = React.useState(null);
+    const [visible,setVisible]=React.useState(false)
+
+    const signIn=()=>{
+        setVisible(true);
+        auth().signInWithEmailAndPassword(Email,Password).then(()=>{
+            setVisible(false);
+            Alert.alert('Successful','Sign In Successful')
+        }).catch(err=>{
+            setVisible(false);
+            Alert.alert(err.code,err.message)
+        })
+    }
     return (
-        <View>
-            <View style={style.topDesign}>
-                <View style={style.logoDesign}>
-                    <Image
-                        style={style.logoImage}
-                        source={{
-                            uri: 'https://cdn5.vectorstock.com/i/1000x1000/47/39/e-letter-education-logo-icon-design-vector-22644739.jpg'
-                        }}
-                    />
+        <ScrollView>
+            <View style={{
+                backgroundColor: 'white',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <View style={style.topDesign}>
+                    <View style={style.logoDesign}>
+                        <Image
+                            style={{ height: 160, width: 158, borderRadius: 10, marginTop: -2 }}
+                            source={require('../Logo/knowledge.png')}
+                        />
+                    </View>
+                    <Text style={style.headLine}>Edu Planet</Text>
                 </View>
-                <Text style={style.headLine}>Edu Planet</Text>
+                <View style={SignInStyle.textInput}>
+                    <View>
+                        <TextInput
+                            style={style.input}
+                            textAlign={'center'}
+                            onChangeText={onChangeEmail}
+                            value={Email}
+                            placeholder="Email"
+                            placeholderTextColor={"black"}
+                        />
+                    </View>
+                    <View>
+                        <TextInput
+                            style={style.input}
+                            textAlign={'center'}
+                            onChangeText={onChangePassword}
+                            value={Password}
+                            placeholder="Password"
+                            placeholderTextColor={"black"}
+                        />
+                    </View>
+                </View>
+                <View style={{
+                    marginTop: 10
+                }}>
+                    <Button text="Log In" onPress={() =>{
+                        signIn();
+                    }}/>
+                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('Forget')} style={SignInStyle.underLogin}>
+                    <Text>Forgot password?</Text>
+                </TouchableOpacity>
+                <View style={SignInStyle.bottomSignIn}>
+                    <Button text="Sign Up Now" onPress={()=>navigation.navigate('Categories')}/>
+                </View>
             </View>
-        </View>
+            <Loader text='Checking Auth..' visible={visible} />
+        </ScrollView>
     );
 };
 

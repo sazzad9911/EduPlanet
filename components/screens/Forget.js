@@ -30,7 +30,7 @@ const Forget = (props) =>
                     style={[style.input,{marginBottom:50}]}
                     onChangeText={onChangeNumber5}
                     value={number5}
-                    placeholder="000000"
+                    placeholder="Enter Email"
                     placeholderTextColor={'black'}
                 />
 

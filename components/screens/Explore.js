@@ -1,7 +1,22 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import style from '../styles/style'
-const Explore = () => {
+import auth from '@react-native-firebase/auth'
+import firestore from '@react-native-firebase/firestore'
+
+const Explore = (props) => {
+    const navigation = props.navigation
+
+    React.useEffect(() => {
+        auth().onAuthStateChanged(user => {
+            if (user) {
+                firestore().collection('UserInformation')
+                .doc(user.uid).get().then(doc => {
+                    navigation.navigate('Home', { email: user.email, uid: user.uid,title: doc.get('Title')})
+                })
+            }
+        })
+    },[])
     return (
         <View style={style.allOver}>
             <View style={style.textView}>
@@ -10,9 +25,7 @@ const Explore = () => {
                 <View>
                     <Image
                         style={style.image}
-                        source={{
-                            uri: 'https://ysseglobal.org/blog/wp-content/uploads/2019/09/YSSE-BLOG-2003-1.jpg'
-                        }}
+                        source={require('../file/YSSE-BLOG-2003-1.jpg')}
                     />
                 </View>
                 <View style={style.bottom}>
@@ -25,7 +38,7 @@ const Explore = () => {
                             <View style={style.dotView1} />
                         </View>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
                         <View style={style.bottomButton}>
                             <Text style={style.bottomButtonText}>Next</Text>
                         </View>

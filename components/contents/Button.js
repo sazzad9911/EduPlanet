@@ -7,7 +7,7 @@ const Button = (props) => {
         <TouchableOpacity style={[style.signUpButton, {
             justifyContent: 'center',
             alignItems: 'center'
-        }]} onPress={() => props.onPress()}>
+        },props.style]} onPress={() => props.onPress()}>
             <Text style={{
                 fontSize: 15,
                 color: 'black',
