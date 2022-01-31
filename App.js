@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native'
+import { View, Text,LogBox } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignIn from './components/screens/SignIn'
@@ -12,7 +12,7 @@ import Notification from './components/screens/Notification'
 import Profile from './components/screens/Profile';
 import AddVideos from './components/screens/AddVideos';
 import SearchList from './components/screens/SearchList';
-
+LogBox.ignoreAllLogs()
 const Stack = createNativeStackNavigator();
 const App = () => {
 
