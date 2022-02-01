@@ -5,7 +5,7 @@ const style = StyleSheet.create({
     headLine: {
         fontSize: 30,
         fontWeight: '800',
-        color: 'black'
+        color: 'black',
     },
 
     headLine1: {
@@ -36,14 +36,16 @@ const style = StyleSheet.create({
 
     allOver: {
         height: 792,
-        width: 432,
+        width: window.width-20,
         backgroundColor: 'white',
-        borderRadius: 40,
         shadowColor: "#000",
         shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 0.5,
         shadowRadius: 3.84,
-        elevation: 5
+        elevation: 5,
+        borderTopLeftRadius:40,
+        borderBottomRightRadius:40,
+        margin:10
     },
 
     textView: {
@@ -63,7 +65,7 @@ const style = StyleSheet.create({
 
     image: {
         height: 180,
-        width: 350,
+        width: window.width-100,
         backgroundColor: 'white',
         marginTop: 50,
         borderRadius: 12
@@ -89,7 +91,6 @@ const style = StyleSheet.create({
 
     bottom: {
         height: 150,
-        width: 400,
         backgroundColor: 'white',
         marginTop: 70,
         flexDirection: 'row'
@@ -101,7 +102,7 @@ const style = StyleSheet.create({
         backgroundColor: '#dda0dd',
         borderTopLeftRadius: 50,
         borderBottomLeftRadius: 50,
-        marginLeft: 81,
+        marginLeft: 41,
         marginTop: 48
     },
 
@@ -244,8 +245,8 @@ const style = StyleSheet.create({
 
 
     topDesign: {
-        height: window.height - 550,
         width: window.width,
+        height:150,
         backgroundColor: '#b0c4de',
         borderBottomRightRadius: 400,
         justifyContent: 'center',

@@ -13,9 +13,9 @@ const SignInStyle = StyleSheet.create({
     underLogin: {
         height: window.height - 750,
         width: window.width,
-        backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
+        margin:20
     },
 
     underDotview: {
@@ -37,7 +37,7 @@ const SignInStyle = StyleSheet.create({
     },
 
     bottomSignIn: {
-        height: window.height - 550,
+        height: 150,
         width: window.width,
         backgroundColor: '#b0c4de',
         borderTopLeftRadius: 400,
