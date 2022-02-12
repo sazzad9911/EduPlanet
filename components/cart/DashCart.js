@@ -45,7 +45,7 @@ const DashCart = (props) => {
                         alignItems: 'center',
                     }}>
                         <VideoPlayer onBack={() => {
-                            setModalVisibility(!ModalVisibility)
+                            setModalVisibility(false)
                         }} controls={true} toggleResizeModeOnFullscreen={true} source={{ uri: data.Video }} />
                     </View>
                 </Modal>
