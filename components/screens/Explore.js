@@ -39,7 +39,7 @@ const Explore = (props) => {
                                 <View style={style.dotView1} />
                             </View>
                         </View>
-                        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('About')}>
                             <View style={style.bottomButton}>
                                 <Text style={style.bottomButtonText}>Next</Text>
                             </View>

@@ -18,6 +18,8 @@ target 'EduPlanet' do
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
+  pod 'RNCCheckbox', :path => '../node_modules/@react-native-community/checkbox'
+
   target 'EduPlanetTests' do
     inherit! :complete
     # Pods for testing

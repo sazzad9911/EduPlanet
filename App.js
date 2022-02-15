@@ -11,7 +11,8 @@ import Forget from './components/screens/Forget'
 import Notification from './components/screens/Notification'
 import Profile from './components/screens/Profile';
 import AddVideos from './components/screens/AddVideos';
-import SearchList from './components/screens/SearchList';
+import About from './components/screens/About';
+
 LogBox.ignoreAllLogs()
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
         <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
         <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
         <Stack.Screen name="Add Video" component={AddVideos} options={{ headerShown: true }} />
-        <Stack.Screen name="Search List" component={SearchList} options={{ headerShown:true}}/>
+        <Stack.Screen name="About" component={About} options={{ headerShown:true }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

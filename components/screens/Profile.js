@@ -8,7 +8,8 @@ import Button from '../contents/Button';
 import Loader from '../contents/Loader'
 import firestore from '@react-native-firebase/firestore'
 import storage from '@react-native-firebase/storage'
-import {launchImageLibrary} from 'react-native-image-picker'
+import auth from '@react-native-firebase/auth'
+import { launchImageLibrary } from 'react-native-image-picker'
 
 const Profile = (props) => {
     const user = props.route.params.user;
@@ -16,45 +17,60 @@ const Profile = (props) => {
     const [Email, setEmail] = React.useState(null)
     const [Phone, setPhone] = React.useState(null)
     const [Visible, setVisible] = React.useState(false)
-    const [text,setText] = React.useState('Saving...')
-    const [image, setImage]= React.useState(null)
+    const [text, setText] = React.useState('Saving...')
+    const [image, setImage] = React.useState(null)
+    const [Marks, setMarks] = React.useState(null)
+    const navigation= props.navigation
 
     React.useEffect(() => {
-        if(user){
+        if (user) {
             setImage(user.Image)
             setEmail(user.Email)
             setPhone(user.Phone)
             setName(user.Name)
+            firestore().collection('UserInformation').doc(user.Uid)
+                .collection('Marks').onSnapshot(doc => {
+                    if (doc) {
+                        let arr = []
+                        doc.forEach(doc => {
+                            arr.push(doc.data())
+                        })
+                        setMarks(arr)
+                    } else {
+                        setMarks([])
+                    }
+                })
         }
-    },[user])
 
-    const uploadPhoto = ()=>{
-        if(!user){
+    }, [user])
+
+    const uploadPhoto = () => {
+        if (!user) {
             return;
         }
         launchImageLibrary({
-            mediaType:'photo',
-            quality:.5
-        }, response=>{
-            if(response.assets){
+            mediaType: 'photo',
+            quality: .5
+        }, response => {
+            if (response.assets) {
                 setVisible(true)
                 let assets = response.assets[0]
-               const task= storage().ref('Images/'+assets.fileName).putFile(assets.uri);
-                task.on('state_changed',snapshot=>{
+                const task = storage().ref('Images/' + assets.fileName).putFile(assets.uri);
+                task.on('state_changed', snapshot => {
                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     //console.log();
                     setText('Upload is ' + progress.toFixed(2) + '% done')
-                }, err=>{
-                    Alert.error(err.code,err.message)
+                }, err => {
+                    Alert.error(err.code, err.message)
                     setVisible(false)
-                },()=>{
-                    task.snapshot.ref.getDownloadURL().then(url=>{
+                }, () => {
+                    task.snapshot.ref.getDownloadURL().then(url => {
                         setImage(url)
                         firestore().collection('UserInformation').doc(user.Uid).update({
                             Image: url
-                        }).then(()=>{
+                        }).then(() => {
                             setVisible(false)
-                        }).catch(err=>{
+                        }).catch(err => {
                             setVisible(false)
                         })
                         setVisible(false)
@@ -71,31 +87,43 @@ const Profile = (props) => {
                     <View style={style.profileviweC}>
                         <View style={style.profileviweD}>
                             <TouchableOpacity onPress={uploadPhoto}>
-                            <Image
+                                <Image
                                     style={style.profileviweB}
-                                    source={{ uri: image?image: 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg' }}
+                                    source={{ uri: image ? image : 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg' }}
                                 />
                             </TouchableOpacity>
                         </View>
                         <View style={style.profileviweE}>
                             <Text style={[style.profiletext, { marginTop: 10 }]}>{user ? user.Name : '.'}</Text>
-                            <Text style={style.profiletextA}>{user ? user.Title : '.'}</Text>
-                            <View style={style.profileviweF}>
-                                <View style={[style.profileviweG, {
-                                    width: user ? user.Progress * 29 : 1
-                                }]}></View>
-                            </View>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Text style={style.profiletextC}>Overall Progress</Text>
-                                <Text style={style.profiletextD}>{user ? user.Progress * 10 : '0'}%</Text>
-                            </View>
+                            {
+                                Marks ? (
+                                    Marks.map((doc, i) => (
+                                        <View key={i}>
+                                            <Text style={style.profiletextA}>{doc.Subject}</Text>
+                                            <View style={style.profileviweF}>
+                                                <View style={[style.profileviweG, {
+                                                    width: doc.Mark * 29
+                                                }]}></View>
+                                            </View>
+                                            <View style={{ flexDirection: 'row' }}>
+                                                <Text style={style.profiletextC}>Overall Progress</Text>
+                                                <Text style={style.profiletextD}>{doc.Mark*10}%</Text>
+                                            </View>
+                                        </View>
+                                    ))
+                                ) : (
+                                    <Text style={style.profiletextC}>No Quiz Attend</Text>
+                                )
+                            }
+
                         </View>
                     </View>
-                    <TouchableOpacity style={style.profileviweH} onPress={() => {
-
-                        Alert.alert('Send Application', 'Send Application Successful')
+                    <TouchableOpacity style={[style.profileviweH,{alignItems: 'center',justifyContent: 'center'}]} onPress={() => {
+                        auth().signOut().then(() => {
+                            navigation.navigate('SignIn')
+                        })
                     }}>
-                        <Text style={style.profiletextE}>+ Become Member</Text>
+                        <Text style={style.profiletextE}>Log Out</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={style.profileviweI}>

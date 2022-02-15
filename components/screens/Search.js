@@ -12,6 +12,7 @@ const Search = (props) => {
 
     const navigation = props.navigation
     const [number6, onChangeNumber6] = React.useState(null);
+    const uid = props.route.params.uid
     const [data,setData]= React.useState(null)
     const [data2, setData2] = React.useState([
         {
@@ -29,6 +30,7 @@ const Search = (props) => {
     ]);
 
     React.useEffect(() => {
+       // console.log(uid)
         firestore().collection('Videos').orderBy('NewDate', 'desc').get().then(doc => {
             if (doc) {
                 let arr = []
@@ -111,13 +113,23 @@ const Search = (props) => {
                     <ScrollView horizontal={true}>
                         {
                             data2 ? (
-                                data2.map(doc => (
+                                data2.length> 0?(
+                                    data2.map(doc => (
                                     <SearchButton key={doc.Id} text={doc.Category} onPress={()=>{
-                                        navigation.navigate('Search List', { search: doc.Category })
+                                        navigation.navigate('Search List', { search: doc.Category,UserId:uid })
                                     }} />
                                 ))
+                                ):(
+                                    <Text style={{
+                                        marginVertical:20,
+                                        marginLeft:5,
+                                        fontSize: 20,
+                                        color:'red'
+                                    }}>Not Found!</Text>
+                                )
                             ) : (
-                                <View></View>
+                                <View>
+                                </View>
                             )
                         }
                     </ScrollView>

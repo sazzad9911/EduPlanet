@@ -23,9 +23,9 @@ const DashCart = (props) => {
             shadowOpacity:.2,
             shadowRadius:3
         }}>
-            <View style={{ width: props.i==1? window.width-30:280, margin: 5,backgroundColor:'white',borderRadius: 10,padding:5}}>
+            <View style={{ width: props.i==1? window.width-30:280, margin: 5,backgroundColor:'white',borderRadius: 10,padding:5,margin:10}}>
                 <Image
-                    style={{ height: 150, width: props.i==1? window.width-60:150, borderRadius: 10, margin: 10}}
+                    style={{ height: 150, width: props.i==1? window.width-60:250, borderRadius: 10, margin: 10}}
                     source={{ uri: data.Banner }}
                 />
                 <TouchableOpacity onPress={() => setModalVisibility(!ModalVisibility)} style={{ flexDirection: 'row', width: 280, }}>

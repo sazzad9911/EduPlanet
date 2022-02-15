@@ -11,6 +11,8 @@ import tabStyle from '../styles/tabStyle';
 import HomeHeader from '../contents/HomeHeader'
 import firestore from '@react-native-firebase/firestore'
 import Loader from '../contents/Loader'
+import Quiz from './Quiz'
+import SearchList from './SearchList'
 
 const Tab = createBottomTabNavigator();
 const window = Dimensions.get('window')
@@ -38,8 +40,8 @@ const Home = (props) => {
 
     return (
         <Tab.Navigator tabBar={props => <TabBar {...props}></TabBar>}>
-            <Tab.Screen name="Dashboard" component={Dashboard} initialParams={{user:UserInformation,title:params.title}} options={{ header: (props) => <HomeHeader {...props} user={UserInformation} /> }} />
-            <Tab.Screen name="Search" component={Search} initialParams={{user:UserInformation}} options={{ headerShown: false }} />
+            <Tab.Screen name="Dashboard" component={Dashboard} initialParams={{user:UserInformation,title:params.title,uid:params.uid}} options={{ header: (props) => <HomeHeader {...props} user={UserInformation} /> }} />
+            <Tab.Screen name="Search" component={Search} initialParams={{uid:params.uid}} options={{ headerShown: false }} />
             <Tab.Screen name="Profile" initialParams={{user:UserInformation}} component={Profile} options={{
                 header: () => <Text style={{
                     backgroundColor: 'white',
@@ -48,6 +50,8 @@ const Home = (props) => {
                     padding: 10,
                 }}>Profile</Text>
             }} />
+            <Tab.Screen name="Quiz" initialParams={{user:UserInformation,uid:params.uid}} component={Quiz}/>
+            <Tab.Screen name="Search List" initialParams={{uid:params.uid}} component={SearchList} options={{ headerShown:false}}/>
         </Tab.Navigator>
     );
 };
@@ -72,7 +76,7 @@ const TabBar = (props) => {
                 padding: 0,
             }}>
                 <View>
-                    <TouchableOpacity style={[tabStyle.tabButton, { backgroundColor: state.index == 0 ? '#6C3483' : '#a9a9a9' }]} onPress={() => {
+                    <TouchableOpacity style={[tabStyle.tabButton, { backgroundColor: state.index == 0|| state.index==3 ? '#6C3483' : '#a9a9a9' }]} onPress={() => {
                         navigation.navigate('Dashboard')
 
                     }}>
@@ -81,7 +85,7 @@ const TabBar = (props) => {
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity style={[tabStyle.tabButton, { marginLeft: 10, marginRight: 10, backgroundColor: state.index == 1 ? '#6C3483' : '#a9a9a9' }]} onPress={() => {
+                    <TouchableOpacity style={[tabStyle.tabButton, { marginLeft: 10, marginRight: 10, backgroundColor: state.index == 1|| state.index == 4? '#6C3483' : '#a9a9a9' }]} onPress={() => {
                         navigation.navigate('Search')
                     }}>
                         <Icon name="search1" size={30} color="white" />
