@@ -102,7 +102,7 @@ const Profile = (props) => {
                                             <Text style={style.profiletextA}>{doc.Subject}</Text>
                                             <View style={style.profileviweF}>
                                                 <View style={[style.profileviweG, {
-                                                    width: doc.Mark * 29
+                                                    width: doc.Mark>10?doc.Mark*29:10
                                                 }]}></View>
                                             </View>
                                             <View style={{ flexDirection: 'row' }}>

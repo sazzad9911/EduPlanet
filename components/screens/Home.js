@@ -30,7 +30,7 @@ const Home = (props) => {
                 setUserInformation(doc.data())
                 setLoader(false)
                 if(doc.get('Admin')){
-                    navigation.navigate('Add Video')
+                    navigation.navigate('Admin')
                 }
             } else {
                 setLoader(false)

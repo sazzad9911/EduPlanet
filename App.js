@@ -10,7 +10,7 @@ import Categories from './components/screens/Categories'
 import Forget from './components/screens/Forget'
 import Notification from './components/screens/Notification'
 import Profile from './components/screens/Profile';
-import AddVideos from './components/screens/AddVideos';
+import Admin from './components/screens/Admin'
 import About from './components/screens/About';
 
 LogBox.ignoreAllLogs()
@@ -28,7 +28,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
         <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
-        <Stack.Screen name="Add Video" component={AddVideos} options={{ headerShown: true }} />
+        <Stack.Screen name="Admin" component={Admin} options={{ headerShown: false }} />
         <Stack.Screen name="About" component={About} options={{ headerShown:true }}/>
       </Stack.Navigator>
     </NavigationContainer>
