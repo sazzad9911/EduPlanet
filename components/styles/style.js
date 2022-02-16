@@ -279,14 +279,14 @@ const style = StyleSheet.create({
         //justifyContent:'center',
     },
     profileviwea: {
-        height: 220,
+        minHeight: 220,
         width:window.width-20,
         marginTop: 15,
         backgroundColor: '#FEE0DE',
         borderRadius: 15,
     },
     profileviweC: {
-        height: 170,
+        minHeight: 170,
         width: 380,
         borderRadius: 15,
         backgroundColor: '#FEE0DE',
@@ -321,7 +321,7 @@ const style = StyleSheet.create({
         borderRadius:35.5
     },
     profileviweD: {
-        height: 170,
+        minHeight: 170,
         width: 80,
         borderRadius: 25,
         //marginLeft:10,
@@ -329,7 +329,7 @@ const style = StyleSheet.create({
         backgroundColor: '#FEE0DE'
     },
     profileviweE: {
-        height: 170,
+        minHeight: 170,
         width: 295,
         borderRadius: 15,
         marginLeft: 15,
@@ -352,9 +352,10 @@ const style = StyleSheet.create({
     profileviweH: {
         height: 40,
         width: 250, 
+        margin:10,
         marginLeft: 60,
         borderRadius: 23,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     profileviweI: {
         width:window.width-15,

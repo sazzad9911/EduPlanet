@@ -17,12 +17,15 @@ const Dashboard = (props) => {
     const [Visible, setVisible] = React.useState(false)
 
     React.useEffect(() => {
-        firestore().collection('UserInformation').doc(uid).onSnapshot(doc => {
+        firestore().collection('UserInformation').doc(uid).get().then(doc => {
             if (doc) {
                 setUserInformation(doc.data())
                 //console.log(doc.data())
             }
         })
+    },[UserInformation])
+    React.useEffect(() => {
+        
         firestore().collection('Videos').orderBy('NewDate', 'desc').get().then(doc => {
             if (doc) {
                 let arr = []

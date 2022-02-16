@@ -25,7 +25,7 @@ const Home = (props) => {
     const [loader, setLoader] = React.useState(true)
 
     React.useEffect(() => {
-        firestore().collection('UserInformation').doc(params.uid).onSnapshot(doc => {
+        firestore().collection('UserInformation').doc(params.uid).get().then(doc => {
             if (doc) {
                 setUserInformation(doc.data())
                 setLoader(false)
