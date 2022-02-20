@@ -15,6 +15,10 @@ const SignIn = (props) => {
     const window = Dimensions.get('window')
 
     const signIn = () => {
+        if(!Email || !Password){
+            Alert.alert('Opps!','Fill all the fields');
+            return;
+        }
         setVisible(true);
         auth().signInWithEmailAndPassword(Email, Password).then(() => {
             auth().onAuthStateChanged(user => {
@@ -82,6 +86,7 @@ const SignIn = (props) => {
                     onChangeText={onChangePassword}
                     value={Password}
                     placeholder="Password"
+                    secureTextEntry={true}
                     placeholderTextColor={"black"}
                 />
                 <Button style={{
@@ -92,7 +97,7 @@ const SignIn = (props) => {
                 <TouchableOpacity onPress={() => navigation.navigate('Forget')} style={SignInStyle.underLogin}>
                     <Text>Forgot password?</Text>
                 </TouchableOpacity>
-                <Button text="Sign Up Now" onPress={() => navigation.navigate('Categories')} />
+                <Button text="Sign Up Now" onPress={() => navigation.navigate('SignUp')} />
             </View>
             <Loader text='Checking Auth..' visible={visible} />
         </ScrollView>

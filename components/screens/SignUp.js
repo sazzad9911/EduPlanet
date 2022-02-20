@@ -56,6 +56,7 @@ const SignUp = (props) => {
                     value={Password}
                     placeholder="Password"
                     placeholderTextColor={'black'}
+                    secureTextEntry={true}
                 />
                 <TextInput
                     style={style.input}
@@ -63,6 +64,7 @@ const SignUp = (props) => {
                     value={RePassword}
                     placeholder="Retype Password"
                     placeholderTextColor={'black'}
+                    secureTextEntry={true}
                 />
 
                 <View style={{
@@ -72,7 +74,7 @@ const SignUp = (props) => {
                         if(Password!=RePassword){
                             Alert.alert('Opps!','Password are not matched')
                             return;
-                        }if(!Name || !Institution || !params.category){
+                        }if(!Name || !Institution){
                             Alert.alert('Opps!','Name and Institution name is required')
                             return;
                         }
@@ -83,14 +85,13 @@ const SignUp = (props) => {
                                 firestore().collection('UserInformation').doc(user.uid).set({
                                     Image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyc_wMXS_hHkfJynXufjZ3DSgNu7B8Ob0A8wWROuHTPzM2o6Q8Z1PPnqBSDNRk64AqNkc&usqp=CAU',
                                     Name:Name,
-                                    Title:params.category,
                                     Email:Email.toLowerCase(),
                                     Uid:user.uid,
                                     Institution:Institution,
                                     Admin:false,
                                     Progress:0
                                 }).then(()=>{
-                                    navigation.navigate('Home',{email:user.email,uid:user.uid,title:params.category})
+                                    navigation.navigate('Home',{email:user.email,uid:user.uid})
                                     setLoader(false)
                                 }).catch(err=>{
                                     Alert.alert(err.code,err.message)

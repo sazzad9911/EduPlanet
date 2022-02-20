@@ -23,9 +23,8 @@ const Dashboard = (props) => {
                 //console.log(doc.data())
             }
         })
-    },[UserInformation])
+    }, [UserInformation])
     React.useEffect(() => {
-        
         firestore().collection('Videos').orderBy('NewDate', 'desc').get().then(doc => {
             if (doc) {
                 let arr = []
@@ -33,14 +32,55 @@ const Dashboard = (props) => {
                     arr.push(data.data())
                 })
                 setData(arr)
-                arr.reverse()
-                setData2(arr)
             } else {
                 setData([])
             }
         })
     }, [])
+    const ViewCart = (props) => {
+        const data = props.data
+        const doc = props.doc
 
+        return (
+            <View>
+                <Text style={{
+                    fontSize: 18,
+                    textAlign: 'center',
+                    fontWeight: '700',
+                    color: '#6C3483'
+                }}>{doc}</Text>
+                <ScrollView horizontal={true}>
+                    <View style={{flexDirection: 'row'}}>
+                        {
+                            data ? (
+                                data.length > 0 ? (
+                                    data.map((d) => (
+                                        d.Category == doc ? (
+                                            <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
+                                        ) : (
+                                            <View key={d.Id}></View>
+                                        )
+                                    ))
+                                ) : (
+                                    <View style={{
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        width: window.width - 20
+                                    }}>
+                                        <Text style={{
+                                            fontSize: 20,
+                                        }}>Empty!</Text>
+                                    </View>
+                                )
+                            ) : (
+                                <Loader text='Loading Home..' visible={true} />
+                            )
+                        }
+                    </View>
+                </ScrollView>
+            </View>
+        )
+    }
     return (
         <ScrollView>
             <View>
@@ -60,164 +100,26 @@ const Dashboard = (props) => {
                 </View>
             </View>
             {
-                UserInformation && UserInformation.Category ? (
+                UserInformation && UserInformation.Category && data ? (
                     UserInformation.Category.map((doc, i) => (
                         i > 3 ? (
                             <View key={i}></View>
                         ) : (
-                            <View key={i}>
-                                <Text style={{
-                                    fontSize: 18,
-                                    textAlign: 'center',
-                                    fontWeight: '700',
-                                    color: '#6C3483'
-                                }}>{doc}</Text>
-                                <Text style={{
-                                    fontSize: 20,
-                                    fontWeight: '100',
-                                    margin: 5,
-                                    marginLeft: 10,
-                                }}>Recent: </Text>
-                                <ScrollView horizontal={true}>
-                                    {
-                                        data ? (
-                                            data.length > 0 ? (
-                                                data.map((d) => (
-                                                    d.Category == doc ? (
-                                                        <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
-                                                    ) : (
-                                                        <View key={d.Id}></View>
-                                                    )
-                                                ))
-                                            ) : (
-                                                <View style={{
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    width: window.width - 20
-                                                }}>
-                                                    <Text style={{
-                                                        fontSize: 20,
-                                                    }}>Empty!</Text>
-                                                </View>
-                                            )
-                                        ) : (
-                                            <Loader text='Loading Home..' visible={true} />
-                                        )
-                                    }
-                                </ScrollView>
-                                <Text style={{
-                                    fontSize: 20,
-                                    fontWeight: '100',
-                                    margin: 5,
-                                    marginLeft: 10,
-                                }}>Older: </Text>
-                                <ScrollView horizontal={true}>
-                                    {
-                                        data ? (
-                                            data.length > 0 ? (
-                                                data.map((d) => (
-                                                    d.Category == doc ? (
-                                                        <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
-                                                    ) : (
-                                                        <View key={d.Id}></View>
-                                                    )
-                                                ))
-                                            ) : (
-                                                <View style={{
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    width: window.width - 20
-                                                }}>
-                                                    <Text style={{
-                                                        fontSize: 20,
-                                                    }}>Empty!</Text>
-                                                </View>
-                                            )
-                                        ) : (
-                                            <Loader text='Loading Home..' visible={true} />
-                                        )
-                                    }
-                                </ScrollView>
-                            </View>
+                            <ViewCart key={i} doc={doc} data={data} />
                         )
                     ))
                 ) : (
                     <View>
+                        <Text style={{
+                            fontSize: 18,
+                            textAlign: 'center',
+                            fontWeight: '700',
+                            color: '#6C3483'
+                        }}>No Course Found!</Text>
                     </View>
                 )
             }
-            <Text style={{
-                fontSize: 18,
-                textAlign: 'center',
-                fontWeight: '700',
-                color: '#6C3483'
-            }}>{title}</Text>
-            <Text style={{
-                fontSize: 20,
-                fontWeight: '100',
-                margin: 5,
-                marginLeft: 10,
-            }}>Recent: </Text>
-            <ScrollView horizontal={true}>
-                {
-                    data ? (
-                        data.length > 0 ? (
-                            data.map((d) => (
-                                d.Category == title ? (
-                                    <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
-                                ) : (
-                                    <View key={d.Id}></View>
-                                )
-                            ))
-                        ) : (
-                            <View style={{
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                width: window.width - 20
-                            }}>
-                                <Text style={{
-                                    fontSize: 20,
-                                }}>Empty!</Text>
-                            </View>
-                        )
-                    ) : (
-                        <Loader text='Loading Home..' visible={true} />
-                    )
-                }
-            </ScrollView>
-            <Text style={{
-                fontSize: 20,
-                fontWeight: '100',
-                margin: 5,
-                marginLeft: 10,
-            }}>Older: </Text>
-            <ScrollView horizontal={true}>
-                {
-                    data ? (
-                        data.length > 0 ? (
-                            data.map((d) => (
-                                d.Category == title ? (
-                                    <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
-                                ) : (
-                                    <View key={d.Id}></View>
-                                )
-                            ))
-                        ) : (
-                            <View style={{
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                width: window.width - 20
-                            }}>
-                                <Text style={{
-                                    fontSize: 20,
-                                }}>Empty!</Text>
-                            </View>
-                        )
-                    ) : (
-                        <Loader text='Loading Home..' visible={true} />
-                    )
-                }
-            </ScrollView>
+
             <Modal animationType='fade' visible={Visible}
                 onRequestClose={() => setVisible(!Visible)} animated={true}
                 transparent={true}>
@@ -232,11 +134,11 @@ const Dashboard = (props) => {
                                             (
                                                 <View key={i}></View>
                                             ) : (
-                                                <TouchableOpacity key={i} onPress={()=>{
+                                                <TouchableOpacity key={i} onPress={() => {
                                                     setVisible(!Visible)
-                                                    navigation.navigate('Quiz',{subject: doc})
+                                                    navigation.navigate('Quiz', { subject: doc })
                                                 }} style={styles.button}>
-                                                    <Text key={i+2} style={styles.buttonText}>{doc}</Text>
+                                                    <Text key={i + 2} style={styles.buttonText}>{doc}</Text>
                                                 </TouchableOpacity>
                                             )
                                     ))
@@ -245,9 +147,9 @@ const Dashboard = (props) => {
                                 )
                         }
                     </View>
-                    <TouchableOpacity onPress={()=>setVisible(false)} style={[styles.button,{ 
-                        marginTop:20,
-                        width:350
+                    <TouchableOpacity onPress={() => setVisible(false)} style={[styles.button, {
+                        marginTop: 20,
+                        width: 350
                     }]}>
                         <Text style={styles.buttonText}>Close</Text>
                     </TouchableOpacity>

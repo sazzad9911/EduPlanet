@@ -13,8 +13,10 @@ const SearchList = (props) => {
     const window = Dimensions.get('window')
 
     React.useEffect(() => {
+        setData(null)
         //console.log(uid)
         if (!search) {
+            console.log('No search found!')
             return
         }
         //setVisible(true)
@@ -33,7 +35,7 @@ const SearchList = (props) => {
                // setVisible(false)
             }
         })
-    }, [])
+    }, [search])
 
     return (
         <ScrollView>

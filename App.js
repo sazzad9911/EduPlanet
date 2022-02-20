@@ -13,7 +13,7 @@ import Profile from './components/screens/Profile';
 import Admin from './components/screens/Admin'
 import About from './components/screens/About';
 
-LogBox.ignoreAllLogs()
+//LogBox.ignoreAllLogs()
 const Stack = createNativeStackNavigator();
 const App = () => {
 
