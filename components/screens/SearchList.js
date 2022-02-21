@@ -15,8 +15,8 @@ const SearchList = (props) => {
     const window = Dimensions.get('window')
 
     React.useEffect(() => {
-        setData(null)
-        if (user) {
+        //setData(null)
+        if (user && user.Category) {
             for(var i = 0; i <user.Category.length;i++) {
                 if(user.Category[i]== search){
                     setCategory(true)

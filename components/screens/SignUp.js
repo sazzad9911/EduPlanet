@@ -89,7 +89,8 @@ const SignUp = (props) => {
                                     Uid:user.uid,
                                     Institution:Institution,
                                     Admin:false,
-                                    Progress:0
+                                    Progress:0,
+                                    Category:[]
                                 }).then(()=>{
                                     navigation.navigate('Home',{email:user.email,uid:user.uid})
                                     setLoader(false)
