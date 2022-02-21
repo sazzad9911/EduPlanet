@@ -23,14 +23,15 @@ const DashCart = (props) => {
             shadowOpacity:.2,
             shadowRadius:3
         }}>
-            <View style={{ width: props.i==1? window.width-30:280, margin: 5,backgroundColor:'white',borderRadius: 10,padding:5,margin:10}}>
+            <View style={{ width: props.i==1? window.width-30:180, margin: 5,backgroundColor:'white',
+            borderRadius: 10,padding:5,margin:10,overflow:'hidden',height:200 }}>
                 <Image
-                    style={{ height: 150, width: props.i==1? window.width-60:250, borderRadius: 10, margin: 10}}
+                    style={{ height: 110, width: props.i==1? window.width-60:150, borderRadius: 10, margin: 10}}
                     source={{ uri: data.Banner }}
                 />
-                <TouchableOpacity onPress={() => setModalVisibility(!ModalVisibility)} style={{ flexDirection: 'row', width: 280, }}>
-                    <Icon name={props.dIcon} size={50} color="#EE4DE8" style={{ marginTop: 10, marginLeft: 10 }} />
-                    <Text style={{ fontSize: 23, marginLeft: 5, color: 'black', flex: 2 }}>{data.Name}</Text>
+                <TouchableOpacity onPress={() => setModalVisibility(!ModalVisibility)} style={{ flexDirection: 'row', width: 180, alignItems: 'center'}}>
+                    <Icon name={props.dIcon} size={40} color="#EE4DE8" style={{ marginTop: 10, marginLeft: 10 }} />
+                    <Text style={{ fontSize: 16, marginLeft: 5, color: 'black', flex: 2 }}>{data.Name}</Text>
                 </TouchableOpacity>
                 <Modal animationType="fade"
                     visible={ModalVisibility}

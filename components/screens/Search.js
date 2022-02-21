@@ -61,6 +61,7 @@ const Search = (props) => {
                     "Id":2
                 }
             ])
+            return
         }
         if (val && data) {
             const newData = data.filter(item => {

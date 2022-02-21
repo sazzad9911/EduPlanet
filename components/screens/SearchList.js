@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text, Dimensions, TouchableOpacity,Alert } from 'react-native'
+import { View, ScrollView, Text, Dimensions, TouchableOpacity, Alert } from 'react-native'
 import firestore from '@react-native-firebase/firestore'
 import Loader from '../contents/Loader'
 import DashCart from '../cart/DashCart'
@@ -7,13 +7,25 @@ import app from '@react-native-firebase/app'
 
 const SearchList = (props) => {
     const search = props.route.params.search
-    const uid=props.route.params.uid
+    const user = props.route.params.user
+    const uid = props.route.params.uid
     const [data, setData] = React.useState(null)
     const [visible, setVisible] = React.useState(false)
+    const [Category, setCategory] = React.useState(false);
     const window = Dimensions.get('window')
 
     React.useEffect(() => {
         setData(null)
+        if (user) {
+            for(var i = 0; i <user.Category.length;i++) {
+                if(user.Category[i]== search){
+                    setCategory(true)
+                    break
+                }else{
+                    setCategory(false)
+                }
+            }
+        }
         //console.log(uid)
         if (!search) {
             console.log('No search found!')
@@ -29,41 +41,47 @@ const SearchList = (props) => {
                     }
                 })
                 setData(arr)
-               // setVisible(false)
+                // setVisible(false)
             } else {
                 setData([])
-               // setVisible(false)
+                // setVisible(false)
             }
         })
     }, [search])
-
+    const list = () => {
+        setVisible(true)
+        const arr = app.firestore.FieldValue.arrayUnion(search)
+        firestore().collection('UserInformation').doc(uid)
+            .update({
+                Category: arr
+            }).then(() => {
+                setVisible(false)
+                Alert.alert('Success', 'Course added successfully')
+            }).catch((err) => {
+                Alert.alert(err.code, err.message)
+                setVisible(false)
+            })
+    }
     return (
         <ScrollView>
-            <View style={{ alignItems:'center' }}>
-                <TouchableOpacity onPress={()=>{
-                    setVisible(true)
-                    const arr=app.firestore.FieldValue.arrayUnion(search)
-                    firestore().collection('UserInformation').doc(uid)
-                    .update({
-                        Category:arr
-                    }).then(() => {
-                        setVisible(false)
-                        Alert.alert('Success','Course added successfully')
-                    }).catch((err) => {
-                        Alert.alert(err.code, err.message)
-                        setVisible(false)
-                    })
-                }} style={{
-                    backgroundColor: '#6C3483',
-                    width: 150,
-                    height: 40,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius:30,
-                    margin:10
-                }}>
-                    <Text style={{ color: 'white', fontSize: 18 }}>Add Course</Text>
-                </TouchableOpacity>
+            <View style={{ alignItems: 'center' }}>
+                {
+                    Category || user.Category.length>3 ? (
+                        <View></View>
+                    ) : (
+                        <TouchableOpacity onPress={list} style={{
+                                backgroundColor: '#6C3483',
+                                width: 150,
+                                height: 40,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: 30,
+                                margin: 10
+                            }}>
+                            <Text style={{ color: 'white', fontSize: 18 }}>Add Course</Text>
+                        </TouchableOpacity>
+                    )
+                }
             </View>
             {
                 data ? (

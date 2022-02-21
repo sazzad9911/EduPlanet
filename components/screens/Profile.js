@@ -20,7 +20,7 @@ const Profile = (props) => {
     const [text, setText] = React.useState('Saving...')
     const [image, setImage] = React.useState(null)
     const [Marks, setMarks] = React.useState(null)
-    const navigation= props.navigation
+    const navigation = props.navigation
 
     React.useEffect(() => {
         if (user) {
@@ -29,7 +29,7 @@ const Profile = (props) => {
             setPhone(user.Phone)
             setName(user.Name)
             firestore().collection('UserInformation').doc(user.Uid)
-                .collection('Marks').onSnapshot(doc => {
+                .collection('Marks').get().then(doc => {
                     if (doc) {
                         let arr = []
                         doc.forEach(doc => {
@@ -79,22 +79,43 @@ const Profile = (props) => {
             }
         })
     }
-
+    const save = () => {
+        if (!user) {
+            return;
+        }
+        if (!Name || !Phone || !Email) {
+            return;
+        }
+        setVisible(true)
+        firestore().collection('UserInformation').doc(user.Uid).update({
+            Name: Name,
+            Email: Email,
+            Phone: Phone,
+        }).then(() => {
+            Alert.alert('Successful', 'Profile update successful')
+            setVisible(false)
+        }).catch((err) => {
+            Alert.alert(err.code, err.message)
+            setVisible(false)
+        })
+        //setVisible(false)
+    }
     return (
         <ScrollView>
             <View style={style.profileviwe}>
                 <View style={style.profileviwea}>
                     <View style={style.profileviweC}>
-                        <View style={style.profileviweD}>
+                        <View style={[style.profileviweD]}>
                             <TouchableOpacity onPress={uploadPhoto}>
                                 <Image
                                     style={style.profileviweB}
                                     source={{ uri: image ? image : 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg' }}
                                 />
                             </TouchableOpacity>
+
                         </View>
                         <View style={style.profileviweE}>
-                            <Text style={[style.profiletext, { marginTop: 10 }]}>{user ? user.Name : '.'}</Text>
+                            <Text style={[style.profiletext, { marginTop: 33 }]}>{Name ? Name : '.'}</Text>
                             {
                                 Marks ? (
                                     Marks.map((doc, i) => (
@@ -102,12 +123,12 @@ const Profile = (props) => {
                                             <Text style={style.profiletextA}>{doc.Subject}</Text>
                                             <View style={style.profileviweF}>
                                                 <View style={[style.profileviweG, {
-                                                    width: doc.Mark>10?doc.Mark*29:10
+                                                    width: doc.Mark <= 10 ? doc.Mark * 29 : 10*29
                                                 }]}></View>
                                             </View>
                                             <View style={{ flexDirection: 'row' }}>
                                                 <Text style={style.profiletextC}>Overall Progress</Text>
-                                                <Text style={style.profiletextD}>{doc.Mark*10}%</Text>
+                                                <Text style={style.profiletextD}>{doc.Mark * 10}%</Text>
                                             </View>
                                         </View>
                                     ))
@@ -118,7 +139,7 @@ const Profile = (props) => {
 
                         </View>
                     </View>
-                    <TouchableOpacity style={[style.profileviweH,{alignItems: 'center',justifyContent: 'center'}]} onPress={() => {
+                    <TouchableOpacity style={[style.profileviweH, { alignItems: 'center', justifyContent: 'center' }]} onPress={() => {
                         auth().signOut().then(() => {
                             navigation.navigate('SignIn')
                         })
@@ -138,25 +159,7 @@ const Profile = (props) => {
                     <Button style={{
                         marginVertical: 40,
 
-                    }} text='SAVE' onPress={() => {
-                        if (!user) {
-                            return;
-                        }
-                        if (!Name || !Phone || !Email) {
-                            return;
-                        }
-                        setVisible(true)
-                        firestore().collection('UserInformation').doc(user.Uid).update({
-                            Name: Name,
-                            Email: Email,
-                            Phone: Phone,
-                        }).then(() => {
-                            setVisible(false)
-                        }).catch((err) => {
-                            setVisible(false)
-                        })
-                        setVisible(false)
-                    }} />
+                    }} text='SAVE' onPress={save} />
                 </View>
                 <Loader text={text} visible={Visible} />
             </View>

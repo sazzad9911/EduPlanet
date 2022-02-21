@@ -15,15 +15,7 @@ const Dashboard = (props) => {
     const window = Dimensions.get('window')
     const [UserInformation, setUserInformation] = React.useState(null)
     const [Visible, setVisible] = React.useState(false)
-
-    React.useEffect(() => {
-        firestore().collection('UserInformation').doc(uid).get().then(doc => {
-            if (doc) {
-                setUserInformation(doc.data())
-                //console.log(doc.data())
-            }
-        })
-    }, [UserInformation])
+    const [State, setState] = React.useState(null)
     React.useEffect(() => {
         firestore().collection('Videos').orderBy('NewDate', 'desc').get().then(doc => {
             if (doc) {
@@ -37,50 +29,16 @@ const Dashboard = (props) => {
             }
         })
     }, [])
-    const ViewCart = (props) => {
-        const data = props.data
-        const doc = props.doc
-
-        return (
-            <View>
-                <Text style={{
-                    fontSize: 18,
-                    textAlign: 'center',
-                    fontWeight: '700',
-                    color: '#6C3483'
-                }}>{doc}</Text>
-                <ScrollView horizontal={true}>
-                    <View style={{flexDirection: 'row'}}>
-                        {
-                            data ? (
-                                data.length > 0 ? (
-                                    data.map((d) => (
-                                        d.Category == doc ? (
-                                            <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
-                                        ) : (
-                                            <View key={d.Id}></View>
-                                        )
-                                    ))
-                                ) : (
-                                    <View style={{
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        width: window.width - 20
-                                    }}>
-                                        <Text style={{
-                                            fontSize: 20,
-                                        }}>Empty!</Text>
-                                    </View>
-                                )
-                            ) : (
-                                <Loader text='Loading Home..' visible={true} />
-                            )
-                        }
-                    </View>
-                </ScrollView>
-            </View>
-        )
-    }
+    React.useEffect(() => {
+        const info=firestore().collection('UserInformation').doc(uid);
+        info.onSnapshot(doc => {
+            if (doc) {
+                setUserInformation(doc.data())
+                //console.log(doc.data())
+            }
+        })
+    }, [State])
+    
     return (
         <ScrollView>
             <View>
@@ -100,12 +58,13 @@ const Dashboard = (props) => {
                 </View>
             </View>
             {
-                UserInformation && UserInformation.Category && data ? (
+                UserInformation && UserInformation.Category ? (
                     UserInformation.Category.map((doc, i) => (
-                        i > 3 ? (
-                            <View key={i}></View>
-                        ) : (
+                        i < 3 && data ? (
                             <ViewCart key={i} doc={doc} data={data} />
+
+                        ) : (
+                            <View key={i}></View>
                         )
                     ))
                 ) : (
@@ -195,3 +154,47 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
     }
 })
+const ViewCart = (props) => {
+    const data = props.data
+    const doc = props.doc
+
+    return (
+        <View>
+            <Text style={{
+                fontSize: 18,
+                textAlign: 'center',
+                fontWeight: '700',
+                color: '#6C3483'
+            }}>{doc}</Text>
+            <ScrollView horizontal={true}>
+                <View style={{ flexDirection: 'row' }}>
+                    {
+                        data ? (
+                            data.length > 0 ? (
+                                data.map((d) => (
+                                    d.Category == doc ? (
+                                        <DashCart key={d.Id} data={d} dIcon='play'></DashCart>
+                                    ) : (
+                                        <View key={d.Id}></View>
+                                    )
+                                ))
+                            ) : (
+                                <View style={{
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    width: window.width - 20
+                                }}>
+                                    <Text style={{
+                                        fontSize: 20,
+                                    }}>Empty!</Text>
+                                </View>
+                            )
+                        ) : (
+                            <Loader text='Loading Home..' visible={true} />
+                        )
+                    }
+                </View>
+            </ScrollView>
+        </View>
+    )
+}

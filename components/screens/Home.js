@@ -51,7 +51,7 @@ const Home = (props) => {
                 }}>Profile</Text>
             }} />
             <Tab.Screen name="Quiz" initialParams={{user:UserInformation,uid:params.uid}} component={Quiz}/>
-            <Tab.Screen name="Search List" initialParams={{uid:params.uid}} component={SearchList} options={{ headerShown:false}}/>
+            <Tab.Screen name="Search List" initialParams={{uid:params.uid,user:UserInformation}} component={SearchList} options={{ headerShown:false}}/>
         </Tab.Navigator>
     );
 };

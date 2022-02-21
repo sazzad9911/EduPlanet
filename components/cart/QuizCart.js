@@ -13,26 +13,52 @@ const QuizCart = (props) => {
     const [M2, setM2] = React.useState(null)
     const [M3, setM3] = React.useState(null)
     const [M4, setM4] = React.useState(null)
+    const [sub,setSub] = React.useState(false)
+    const [Answer,setAnswer]= React.useState(false)
+    const answers= props.answers
 
+    React.useEffect(() => {
+        if(answers){
+            if(data.Answer==1){
+                setA1(true)
+            }else if(data.Answer==2){
+                setA2(true)
+            }else if(data.Answer==3){
+                setA3(true)
+            }else if(data.Answer==4){
+                setA4(true)
+            }
+        }
+    },[])
+    const checkAnswer = (data, index) => {
+        if(sub){
+            return
+        }
+        setSub(true)
+        if(data.Answer==index+1) {
+            setAnswer(true)
+            props.setQuizMark(props.QuizMark+1)
+        }else{
+            setAnswer(false)
+        }
+    }
     return (
-        <View style={styles.view}>
+        <View style={[styles.view]}>
             <Text style={styles.text}>{props.index+1+' . '+data.Question}</Text>
             <View style={styles.view2}>
                 <View style={styles.view3}>
-                    <CheckBox value={A1} onValueChange={(val)=>{
-                        const x=props.checkAnswer(data,0)
+                    <CheckBox disabled={answers} value={A1} onValueChange={(val)=>{
+                        checkAnswer(data,0)
                         setA1(val)
-                        setM1(x)
                     }} />
                     <Text style={[styles.text,{
                         color:M1?M1:'black',
                     }]}>{data.Options[0]}</Text>
                 </View>
                 <View style={styles.view3}>
-                    <CheckBox value={A2} onValueChange={(val)=>{
-                        const x=props.checkAnswer(data,1)
+                    <CheckBox disabled={answers} value={A2} onValueChange={(val)=>{
+                        checkAnswer(data,1)
                         setA2(val)
-                        setM2(x)
                     }} />
                     <Text style={[styles.text,{
                         color:M2?M2:'black',
@@ -41,20 +67,20 @@ const QuizCart = (props) => {
             </View>
             <View style={styles.view2}>
                 <View style={styles.view3}>
-                    <CheckBox value={A3} onValueChange={(val)=>{
-                        const x=props.checkAnswer(data,2)
+                    <CheckBox disabled={answers} value={A3} onValueChange={(val)=>{
+                        checkAnswer(data,2)
                         setA3(val)
-                        setM3(x)
+                        
                     }} />
                     <Text style={[styles.text,{
                         color:M3?M3:'black',
                     }]}>{data.Options[2]}</Text>
                 </View>
                 <View style={styles.view3}>
-                    <CheckBox value={A4} onValueChange={(val)=>{
-                        const x=props.checkAnswer(data,3)
+                    <CheckBox disabled={answers} value={A4} onValueChange={(val)=>{
+                        checkAnswer(data,3)
                         setA4(val)
-                        setM4(x)
+                        
                     }} />
                     <Text style={[styles.text,{
                         color:M4?M4:'black',
