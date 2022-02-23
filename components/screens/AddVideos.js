@@ -150,10 +150,14 @@ const AddVideos = () => {
                     }).then(() => {
                         Alert.alert('Successful', 'Video uploaded successful')
                         setVisible(false)
+                        setBanner(null)
+                        setVideo(null)
+                        onChangeNumber9("")
+                        setSelectedLanguage("")
                     }).catch((err) => {
+                        Alert.alert(err.code, err.message)
                         setVisible(false)
                     })
-                    setVisible(false)
                 }} />
             </View>
             <Loader visible={visible} text={text} />

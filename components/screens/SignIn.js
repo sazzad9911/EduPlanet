@@ -15,18 +15,20 @@ const SignIn = (props) => {
     const window = Dimensions.get('window')
 
     const signIn = () => {
-        if(!Email || !Password){
-            Alert.alert('Opps!','Fill all the fields');
+        if (!Email || !Password) {
+            Alert.alert('Opps!', 'Fill all the fields');
             return;
         }
         setVisible(true);
         auth().signInWithEmailAndPassword(Email, Password).then(() => {
             auth().onAuthStateChanged(user => {
-                firestore().collection('UserInformation').doc(user.uid).get().then((doc) => {
-                    navigation.navigate('Home', { email: user.email, uid: user.uid, title: doc.get('Title') })
-                }).then(() => {
-                    setVisible(false);
-                })
+                if (user) {
+                    firestore().collection('UserInformation').doc(user.uid).get().then((doc) => {
+                        navigation.navigate('Home', { email: user.email, uid: user.uid, title: doc.get('Title') })
+                    }).then(() => {
+                        setVisible(false);
+                    })
+                }
             })
             Alert.alert('Successful', 'Sign In Successful')
         }).catch(err => {
@@ -60,8 +62,8 @@ const SignIn = (props) => {
                 alignItems: 'center',
                 top: 0,
                 left: 0,
-                height:window.height,
-                width:window.width
+                height: window.height,
+                width: window.width
             }}>
                 <View>
                     <Image
@@ -71,7 +73,7 @@ const SignIn = (props) => {
                 </View>
                 <Text style={style.headLine}>Edu Planet</Text>
                 <TextInput
-                    style={[style.input,{
+                    style={[style.input, {
 
                     }]}
                     textAlign={'center'}
@@ -90,7 +92,7 @@ const SignIn = (props) => {
                     placeholderTextColor={"black"}
                 />
                 <Button style={{
-                    margin:30
+                    margin: 30
                 }} text="Log In" onPress={() => {
                     signIn();
                 }} />

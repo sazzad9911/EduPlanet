@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity, Alert,DevSettings } from 'react-native'
 import style from '../styles/style';
 import ProfileCart from '../cart/ProfileCart';
 import EditText from '../cart/EditText';
@@ -141,6 +141,7 @@ const Profile = (props) => {
                     </View>
                     <TouchableOpacity style={[style.profileviweH, { alignItems: 'center', justifyContent: 'center' }]} onPress={() => {
                         auth().signOut().then(() => {
+                            DevSettings.reload()
                             navigation.navigate('SignIn')
                         })
                     }}>

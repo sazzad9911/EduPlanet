@@ -166,7 +166,7 @@ const Search = (props) => {
                         navigation.navigate('Search List', { search: 'Drawing' })
                     }} margin={50} title="Drawing" image={require('../cart/CartImage/drawing.png')} />
                     <Cart onPress={() => {
-                        navigation.navigate('Search List', { search: 'Illustration' })
+                        navigation.navigate('Search List', { search: 'Illustrations' })
                     }} margin={50} title="Illustration" image={require('../cart/CartImage/illustration.jpg')} />
                     <Cart onPress={() => {
                         navigation.navigate('Search List', { search: 'Graphic Design' })

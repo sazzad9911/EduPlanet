@@ -20,6 +20,8 @@ target 'EduPlanet' do
 
   pod 'RNCCheckbox', :path => '../node_modules/@react-native-community/checkbox'
 
+  pod 'react-native-restart', :path => '../node_modules/react-native-restart'
+
   target 'EduPlanetTests' do
     inherit! :complete
     # Pods for testing

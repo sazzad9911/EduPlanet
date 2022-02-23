@@ -177,6 +177,10 @@ const AddQuestion = () => {
                     }).then(() => {
                         setVisible(false)
                         Alert.alert('Success','Question is added successful')
+                        setVideo(null)
+                        setBanner(null)
+                        setSelectedLanguage("")
+                        onChangeNumber9(null)
                     }).catch((err) => {
                         setVisible(false)
                         Alert.alert(err.code, err.message)

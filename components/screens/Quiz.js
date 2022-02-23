@@ -78,7 +78,7 @@ const Quiz = (props) => {
                     <Loader text='Loading..' visible={true} />
                 )
             }
-            <View style={{ alignItems: 'center' }}>
+            <View style={{ alignItems: 'center',margin: 10 }}>
                 <Button text='Finish' onPress={submit} />
             </View>
             <Modal animationType='slide' visible={Modals} onRequestClose={() => {
@@ -108,7 +108,7 @@ const Quiz = (props) => {
                             <Loader text='Loading..' visible={true} />
                         )
                     }
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={{ alignItems: 'center',margin: 10 }}>
                         <Button text='Close' onPress={()=>{setModal(!Modals)}} />
                     </View>
                 </ScrollView>

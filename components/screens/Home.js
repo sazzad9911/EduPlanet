@@ -35,7 +35,7 @@ const Home = (props) => {
             } else {
                 setLoader(false)
             }
-        },[])
+        },[params.uid])
     })
 
     return (
