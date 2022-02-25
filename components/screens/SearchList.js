@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text, Dimensions, TouchableOpacity, Alert } from 'react-native'
+import { View, ScrollView, Text, Dimensions, TouchableOpacity, Alert, DevSettings } from 'react-native'
 import firestore from '@react-native-firebase/firestore'
 import Loader from '../contents/Loader'
 import DashCart from '../cart/DashCart'
@@ -15,13 +15,14 @@ const SearchList = (props) => {
     const window = Dimensions.get('window')
 
     React.useEffect(() => {
+        //DevSettings.reload()
         //setData(null)
         if (user && user.Category) {
-            for(var i = 0; i <user.Category.length;i++) {
-                if(user.Category[i]== search){
+            for (var i = 0; i < user.Category.length; i++) {
+                if (user.Category[i] == search) {
                     setCategory(true)
                     break
-                }else{
+                } else {
                     setCategory(false)
                 }
             }
@@ -32,21 +33,20 @@ const SearchList = (props) => {
             return
         }
         //setVisible(true)
-        firestore().collection('Videos').orderBy('NewDate', 'desc').get().then(doc => {
-            if (doc) {
-                let arr = []
-                doc.forEach(data => {
-                    if (data.get('Category') == search) {
+        firestore().collection('Videos').where('Category', '==', search)
+            .get().then(doc => {
+                if (doc) {
+                    let arr = []
+                    doc.forEach(data => {
                         arr.push(data.data())
-                    }
-                })
-                setData(arr)
-                // setVisible(false)
-            } else {
-                setData([])
-                // setVisible(false)
-            }
-        })
+                    })
+                    setData(arr)
+                    // setVisible(false)
+                } else {
+                    setData([])
+                    // setVisible(false)
+                }
+            })
     }, [search])
     const list = () => {
         setVisible(true)
@@ -66,18 +66,30 @@ const SearchList = (props) => {
         <ScrollView>
             <View style={{ alignItems: 'center' }}>
                 {
-                    Category || user.Category.length>3 ? (
-                        <View></View>
+                    Category || user.Category.length > 3 ? (
+                        <View style={{flexDirection: 'row'}}>
+                        <Text style={{
+                                fontSize: 15,
+                                margin: 5,
+                                color: 'red',
+                                textAlign: 'center'
+                            }}>Warning:</Text>
+                            <Text style={{
+                                fontSize: 15,
+                                margin: 5,
+                                textAlign: 'center',
+                            }}>{Category?'This category is already exists':'Your Course is full'}</Text>
+                        </View>
                     ) : (
                         <TouchableOpacity onPress={list} style={{
-                                backgroundColor: '#6C3483',
-                                width: 150,
-                                height: 40,
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                borderRadius: 30,
-                                margin: 10
-                            }}>
+                            backgroundColor: '#6C3483',
+                            width: 150,
+                            height: 40,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderRadius: 30,
+                            margin: 10
+                        }}>
                             <Text style={{ color: 'white', fontSize: 18 }}>Add Course</Text>
                         </TouchableOpacity>
                     )
@@ -86,9 +98,21 @@ const SearchList = (props) => {
             {
                 data ? (
                     data.length > 0 ? (
-                        data.map((d) => (
-                            <DashCart i={1} key={d.Id} data={d} dIcon='play'></DashCart>
-                        ))
+                        Category ? (
+                            data.map((d) => (
+                                <DashCart i={1} key={d.Id} data={d} dIcon='play'></DashCart>
+                            ))
+
+                        ) : (
+                            <View>
+                                <Text style={{
+                                    fontSize: 20,
+                                    margin: 10,
+                                    textAlign: 'center',
+                                }}>{Category?'':'*Add the course to get more videos'}</Text>
+                                <DashCart i={1} key={data[0].Id} data={data[0]} dIcon='play'></DashCart>
+                            </View>
+                        )
                     ) : (
                         <View style={{
                             justifyContent: 'center',

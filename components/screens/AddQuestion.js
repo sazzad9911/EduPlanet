@@ -78,10 +78,10 @@ const AddQuestion = () => {
                                             setBanner(itemValue)
                                         }>
                                         <Picker.Item label="Select Index" value="" />
-                                        <Picker.Item label="Option 1" value="0" />
-                                        <Picker.Item label="Option 2" value="1" />
-                                        <Picker.Item label="Option 3" value="2" />
-                                        <Picker.Item label="Option 4" value="3" />
+                                        <Picker.Item label="Option 1" value="1" />
+                                        <Picker.Item label="Option 2" value="2" />
+                                        <Picker.Item label="Option 3" value="3" />
+                                        <Picker.Item label="Option 4" value="4" />
                                     </Picker>
                                 </View>
 

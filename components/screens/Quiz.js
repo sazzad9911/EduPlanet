@@ -25,9 +25,8 @@ const Quiz = (props) => {
                 doc.forEach(data => {
                     if (data.get('Category') == subject) {
                         total=total+1;
-                    }
-                    arr.push(data.data())
-                    
+                        arr.push(data.data())
+                    } 
                 })
                 setTotalQuestion(total);
                 setData(arr)
@@ -64,12 +63,7 @@ const Quiz = (props) => {
                 Data ? (
                     Data.length > 0 ? (
                         Data.map((doc, i) => (
-                            doc.Category == subject ?
-                                (
-                                    <QuizCart answers={Answer} QuizMark={QuizMark} setQuizMark={setQuizMark} key={i} index={i} data={doc} />
-                                ) : (
-                                    <View key={i}></View>
-                                )
+                            <QuizCart answers={Answer} QuizMark={QuizMark} setQuizMark={setQuizMark} key={i} index={i} data={doc} />
                         ))
                     ) : (
                         <Text style={{ textAlign: 'center', fontSize: 18, margin: 10 }}>Empty!</Text>

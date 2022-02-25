@@ -128,7 +128,7 @@ const Profile = (props) => {
                                             </View>
                                             <View style={{ flexDirection: 'row' }}>
                                                 <Text style={style.profiletextC}>Overall Progress</Text>
-                                                <Text style={style.profiletextD}>{doc.Mark * 10}%</Text>
+                                                <Text style={style.profiletextD}>{parseInt(doc.Mark) * 10}%</Text>
                                             </View>
                                         </View>
                                     ))

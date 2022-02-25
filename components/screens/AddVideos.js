@@ -138,6 +138,10 @@ const AddVideos = () => {
                         Alert.alert('Opps!', 'Select a type');
                         return;
                     }
+                    if(number9.length > 200) {
+                        Alert.alert('Opps!', 'File must be less than 200 characters');
+                        return;
+                    }
                     setVisible(true)
                     let id = uuid.v4();
                     firestore().collection('Videos').doc(id).set({
