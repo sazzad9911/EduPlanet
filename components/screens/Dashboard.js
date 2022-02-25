@@ -60,7 +60,7 @@ const Dashboard = (props) => {
             {
                 UserInformation && UserInformation.Category ? (
                     UserInformation.Category.map((doc, i) => (
-                        i < 3 && data ? (
+                        i < 4 && data ? (
                             <ViewCart key={i} doc={doc} data={data} />
 
                         ) : (
